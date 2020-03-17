@@ -46,17 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mail.cs">
+    <Compile Include="Communication\Communicater.cs" />
+    <Compile Include="Communication\POP3Client.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\POP3ClientController.cs" />
+    <Compile Include="Entity\ReceivedMail.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Util\EnclosureUtil.cs" />
+    <Compile Include="Util\MailTextParserUtil.cs" />
+    <Compile Include="Util\SerializeUtil.cs" />
+    <Compile Include="Window\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mail.Designer.cs">
-      <DependentUpon>Mail.cs</DependentUpon>
+    <Compile Include="Window\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Mail.resx">
-      <DependentUpon>Mail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,7 +83,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Window\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +106,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\draft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\read.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\write.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dneglu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\html.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\other.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ppt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\txt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
