@@ -38,7 +38,6 @@ namespace SimpleMail.Window
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
-            comboBox_date.SelectedIndex = 0;
         }
 
         //设置欢迎页面信息
@@ -130,9 +129,32 @@ namespace SimpleMail.Window
                     }
                 }
             }
-            if (!NowClient.GetAllMail())
+            if (NowClient.GetAllMail() == -1)
             {
-                return;
+                //程序显示登录界面
+                MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
+                messageForm.ShowDialog();
+                //显示主界面
+                if (messageForm.DialogResult == DialogResult.OK)
+                {
+                    messageForm.Dispose();
+                    Logout();
+                    return;
+                }
+                else if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                    return;
+                }
+            }else if (NowClient.GetAllMail() == 0)
+            {
+                //程序显示登录界面
+                MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
             }
             comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
             receivedMails = NowClient.User.ReceivedMails;
@@ -150,11 +172,11 @@ namespace SimpleMail.Window
             receivedMails = new List<ReceivedMail>();
             switch (comboBox_date.SelectedIndex)
             {
-                case 0:
+                case 4:
                     receivedMails = NowClient.User.ReceivedMails;
                     //全部
                     break;                 
-                case 1:
+                case 0:
                     //今天
                     foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
@@ -167,7 +189,7 @@ namespace SimpleMail.Window
                         }
                     }
                     break;        
-                case 2:
+                case 1:
                     //近一周
                     foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
@@ -180,7 +202,7 @@ namespace SimpleMail.Window
                         }
                     }
                     break;     
-                case 3:
+                case 2:
                     //近一月
                     foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {

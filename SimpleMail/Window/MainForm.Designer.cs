@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("code.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("index.html", 6);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("1.xml", 7);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("3.psd", 0);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("code.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("index.html", 6);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("1.xml", 7);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("3.psd", 0);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button_logout = new System.Windows.Forms.Button();
             this.button_min = new System.Windows.Forms.Button();
@@ -211,14 +211,14 @@
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
             this.listView_enclosure.Name = "listView_enclosure";
             this.listView_enclosure.Size = new System.Drawing.Size(715, 84);
@@ -330,15 +330,15 @@
             this.comboBox_date.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_date.FormattingEnabled = true;
             this.comboBox_date.Items.AddRange(new object[] {
-            "全部",
             "今天",
             "近一周",
             "近一月",
-            "近一年"});
+            "近一年",
+            "全部"});
             this.comboBox_date.Location = new System.Drawing.Point(157, 29);
             this.comboBox_date.Name = "comboBox_date";
             this.comboBox_date.Size = new System.Drawing.Size(204, 28);
-            this.comboBox_date.TabIndex = 0;
+            this.comboBox_date.TabIndex = 4;
             this.comboBox_date.SelectedIndexChanged += new System.EventHandler(this.comboBox_date_SelectedIndexChanged);
             // 
             // button1

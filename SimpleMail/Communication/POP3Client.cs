@@ -117,9 +117,10 @@ namespace SimpleMail.Communication
         }
 
         //获取所有的邮件
-        public bool GetAllMail()
+        public int GetAllMail()
         {
-
+            //返回标志： -1获取失败， 0 获取部分失败， 1获取全部成功 
+            int flag = -1;
             if (State == Pop3STATE.CONNECTED)   //在可操作状态下才可操作
             {
                 string ret;
@@ -129,28 +130,36 @@ namespace SimpleMail.Communication
                 if (ret.IndexOf("+OK") == 0)
                 {
                     //获取成功
-                    ret = ret.Substring(4, 1);
+                    string[] temps = ret.Split(' ');
+                    ret = temps[1];
                     int mailCounts = Convert.ToInt32(ret);
                     User.ReceivedMails = new List<ReceivedMail>();
                     for (int i = 1; i <= mailCounts; i++)
                     {
-                        ReceivedMail receivedMail = GetMailByIndex(i);
-                        if (receivedMail != null)
+                        ReceivedMail receivedMail;
+                        try
                         {
-                            User.ReceivedMails.Add(receivedMail);
+                            receivedMail = GetMailByIndex(i);
+                            if (receivedMail != null)
+                            {
+                                User.ReceivedMails.Add(receivedMail);
+                            }
                         }
-                        else
+                        catch (Exception e)
                         {
-                            return false;
+                            e.ToString();
+                            flag = 0;
                         }
+                    }
+                    if(flag == -1)
+                    {
+                        flag = 1;
                     }
                     //更新序列化
                     SerializeUtil.SerializeUser(User);
-                    return true;
                 }
-                return false;
             }
-            return false;
+            return flag;
         }
 
         //根据邮件id获取邮件
