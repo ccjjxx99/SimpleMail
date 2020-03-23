@@ -129,8 +129,11 @@ namespace SimpleMail.Window
                     }
                 }
             }
+            pictureBox_loading.Visible = true;
+            this.Refresh();
             if (NowClient.GetAllMail() == -1)
             {
+                pictureBox_loading.Visible = false;
                 //程序显示登录界面
                 MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
                 messageForm.ShowDialog();
@@ -148,6 +151,7 @@ namespace SimpleMail.Window
                 }
             }else if (NowClient.GetAllMail() == 0)
             {
+                pictureBox_loading.Visible = false;
                 //程序显示登录界面
                 MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
                 messageForm.ShowDialog();
@@ -229,6 +233,15 @@ namespace SimpleMail.Window
                     }
                     break;
             }
+            receivedMails.Sort((left, right) =>
+            {
+                if (left.SendDateTime < right.SendDateTime)
+                    return 1;
+                else if (left.SendDateTime == right.SendDateTime)
+                    return 0;
+                else
+                    return -1;
+            });
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";

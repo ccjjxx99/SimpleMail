@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("code.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("index.html", 6);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("1.xml", 7);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("3.psd", 0);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("code.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("index.html", 6);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("1.xml", 7);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("3.psd", 0);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button_logout = new System.Windows.Forms.Button();
             this.button_min = new System.Windows.Forms.Button();
@@ -64,10 +64,12 @@
             this.button_read = new System.Windows.Forms.Button();
             this.button_write = new System.Windows.Forms.Button();
             this.pictureBox_mail = new System.Windows.Forms.PictureBox();
+            this.pictureBox_loading = new System.Windows.Forms.PictureBox();
             this.panel_hello.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).BeginInit();
             this.SuspendLayout();
             // 
             // button_logout
@@ -81,7 +83,7 @@
             this.button_logout.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_logout.MinimumSize = new System.Drawing.Size(100, 50);
             this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(120, 60);
+            this.button_logout.Size = new System.Drawing.Size(100, 50);
             this.button_logout.TabIndex = 4;
             this.button_logout.Text = "[⬅";
             this.toolTip_button.SetToolTip(this.button_logout, "注销");
@@ -99,7 +101,7 @@
             this.button_min.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_min.MinimumSize = new System.Drawing.Size(100, 50);
             this.button_min.Name = "button_min";
-            this.button_min.Size = new System.Drawing.Size(120, 60);
+            this.button_min.Size = new System.Drawing.Size(100, 50);
             this.button_min.TabIndex = 5;
             this.button_min.Text = "—";
             this.toolTip_button.SetToolTip(this.button_min, "最小化");
@@ -117,7 +119,7 @@
             this.button_close.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_close.MinimumSize = new System.Drawing.Size(100, 50);
             this.button_close.Name = "button_close";
-            this.button_close.Size = new System.Drawing.Size(120, 60);
+            this.button_close.Size = new System.Drawing.Size(100, 50);
             this.button_close.TabIndex = 6;
             this.button_close.Text = "×";
             this.toolTip_button.SetToolTip(this.button_close, "关闭");
@@ -211,14 +213,14 @@
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
             this.listView_enclosure.Name = "listView_enclosure";
             this.listView_enclosure.Size = new System.Drawing.Size(715, 84);
@@ -385,12 +387,25 @@
             this.pictureBox_mail.TabIndex = 7;
             this.pictureBox_mail.TabStop = false;
             // 
+            // pictureBox_loading
+            // 
+            this.pictureBox_loading.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_loading.Image = global::SimpleMail.Properties.Resources.Loading;
+            this.pictureBox_loading.Location = new System.Drawing.Point(701, 28);
+            this.pictureBox_loading.Name = "pictureBox_loading";
+            this.pictureBox_loading.Size = new System.Drawing.Size(37, 37);
+            this.pictureBox_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox_loading.TabIndex = 30;
+            this.pictureBox_loading.TabStop = false;
+            this.pictureBox_loading.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(1400, 900);
+            this.Controls.Add(this.pictureBox_loading);
             this.Controls.Add(this.panel_receive);
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.panel_hello);
@@ -419,6 +434,7 @@
             this.groupBox_infos.ResumeLayout(false);
             this.groupBox_infos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +468,6 @@
         private System.Windows.Forms.ImageList imageList_enclosures;
         private System.Windows.Forms.Label label_content;
         private System.Windows.Forms.WebBrowser webBrowser_html;
+        private System.Windows.Forms.PictureBox pictureBox_loading;
     }
 }
