@@ -296,10 +296,7 @@ namespace SimpleMail.Window
                 label_content.Visible = false;
                 webBrowser_html.DocumentText = mail.Html;
             }
-
-
         }
-
 
         //鼠标点击
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
