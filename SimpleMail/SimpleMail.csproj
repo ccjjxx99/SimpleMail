@@ -57,8 +57,16 @@
     <Compile Include="Entity\ReceivedMail.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Util\EnclosureUtil.cs" />
+    <Compile Include="Util\Loading\LoadingDot.cs" />
+    <Compile Include="Util\Loading\LoadingHelper.cs" />
     <Compile Include="Util\MailTextParserUtil.cs" />
     <Compile Include="Util\SerializeUtil.cs" />
+    <Compile Include="Util\Loading\FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\Loading\FrmLoading.designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Window\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +97,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Util\Loading\FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Window\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

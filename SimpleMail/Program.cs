@@ -36,7 +36,7 @@ namespace SimpleMail
                     return;
                 }
             }
-            Application.Run(new MainForm());
+            Application.Run(new MainForm() { StartPosition = FormStartPosition.CenterScreen });
         }
     }
 }
