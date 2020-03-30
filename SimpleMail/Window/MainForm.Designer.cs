@@ -166,7 +166,7 @@
             this.panel_receive.Controls.Add(this.comboBox_date);
             this.panel_receive.Location = new System.Drawing.Point(200, 100);
             this.panel_receive.Name = "panel_receive";
-            this.panel_receive.Size = new System.Drawing.Size(1150, 705);
+            this.panel_receive.Size = new System.Drawing.Size(1150, 688);
             this.panel_receive.TabIndex = 19;
             // 
             // webBrowser_html
@@ -278,7 +278,7 @@
             this.listBox_receivedMails.ItemHeight = 23;
             this.listBox_receivedMails.Location = new System.Drawing.Point(25, 87);
             this.listBox_receivedMails.Name = "listBox_receivedMails";
-            this.listBox_receivedMails.Size = new System.Drawing.Size(336, 621);
+            this.listBox_receivedMails.Size = new System.Drawing.Size(336, 575);
             this.listBox_receivedMails.TabIndex = 21;
             this.listBox_receivedMails.SelectedIndexChanged += new System.EventHandler(this.listBox_receivedMails_SelectedIndexChanged);
             this.listBox_receivedMails.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listBox_receivedMails_MouseUp);
@@ -376,6 +376,8 @@
             this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.richTextBox_content.Location = new System.Drawing.Point(400, 330);
+            this.richTextBox_content.MaximumSize = new System.Drawing.Size(733, 495);
+            this.richTextBox_content.MinimumSize = new System.Drawing.Size(733, 355);
             this.richTextBox_content.Name = "richTextBox_content";
             this.richTextBox_content.Size = new System.Drawing.Size(733, 355);
             this.richTextBox_content.TabIndex = 29;

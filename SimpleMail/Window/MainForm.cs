@@ -276,15 +276,15 @@ namespace SimpleMail.Window
                 richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362 - 140);
                 richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 417 + 140);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330 - 140);
-                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
+                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 355 + 140);
             }
             else
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 304);
                 richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362);
-                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 417);
+                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 355);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330);
-                webBrowser_html.Size = new Size(webBrowser_html.Size.Width, 417);
+                webBrowser_html.Size = new Size(webBrowser_html.Size.Width, 355);
 
                 for (int i = 0; i < len; i++)
                 {
