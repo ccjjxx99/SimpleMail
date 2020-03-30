@@ -23,6 +23,7 @@ namespace SimpleMail.Window
     public partial class MainForm : Form
     {
         private Point point;    //当前位置，用于窗口移动
+        public static POP3Client NowClient;
         private static List<ReceivedMail> receivedMails;
         public MainForm()
         {
@@ -33,37 +34,14 @@ namespace SimpleMail.Window
         //设置所有信息
         public void SetAllInfo()
         {
-            SetHelloPanel();
+            receivedMails = NowClient.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
+            label_name.Text = NowClient.User.Username;
+            comboBox_date.SelectedIndex = 4;
         }
 
-        //设置欢迎页面信息
-        private void SetHelloPanel()
-        {
-            int hour = DateTime.Now.Hour;
-            string helloString = "";
-            if (hour >= 7 && hour < 12)
-            {
-                helloString = "上午";
-            }
-            else if (hour == 12)
-            {
-                helloString = "中午";
-            }
-            else if (hour > 12 && hour < 19)
-            {
-                helloString = "下午";
-            }
-            else
-            {
-                helloString = "晚上";
-            }
-
-            label_hello.Text = helloString + "好！ " + POP3ClientController.client.User.Username;
-            label_name.Text = POP3ClientController.client.User.Username;
-        }
 
         //注销按钮点击
         private void button_logout_Click(object sender, EventArgs e)
@@ -75,8 +53,7 @@ namespace SimpleMail.Window
         private void Logout()
         {
             this.Hide();
-            POP3ClientController.client.User.isLogin = false;
-            SerializeUtil.SerializeUser(POP3ClientController.client.User);
+            POP3ClientController.DeletePOP3Client(NowClient);
             //程序显示登录界面
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
@@ -108,9 +85,9 @@ namespace SimpleMail.Window
         //点击收信
         private void button_read_Click(object sender, EventArgs e)
         {
-            if(POP3ClientController.client.State != Pop3STATE.CONNECTED)
+            if(NowClient.State != Pop3STATE.CONNECTED)
             {
-                if (!POP3ClientController.client.Login(POP3ClientController.client.User))
+                if (!NowClient.Login(NowClient.User))
                 {
                     //程序显示登录界面
                     MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
@@ -131,7 +108,7 @@ namespace SimpleMail.Window
             }
             pictureBox_loading.Visible = true;
             this.Refresh();
-            if (POP3ClientController.client.GetAllMail() == -1)
+            if (NowClient.GetAllMail() == -1)
             {
                 pictureBox_loading.Visible = false;
                 //程序显示登录界面
@@ -149,7 +126,7 @@ namespace SimpleMail.Window
                     messageForm.Dispose();
                     return;
                 }
-            }else if (POP3ClientController.client.GetAllMail() == 0)
+            }else if (NowClient.GetAllMail() == 0)
             {
                 pictureBox_loading.Visible = false;
                 //程序显示登录界面
@@ -161,7 +138,7 @@ namespace SimpleMail.Window
                 }
             }
             comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
-            receivedMails = POP3ClientController.client.User.ReceivedMails;
+            receivedMails = NowClient.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
@@ -177,12 +154,12 @@ namespace SimpleMail.Window
             switch (comboBox_date.SelectedIndex)
             {
                 case 4:
-                    receivedMails = POP3ClientController.client.User.ReceivedMails;
+                    receivedMails = NowClient.User.ReceivedMails;
                     //全部
                     break;                 
                 case 0:
                     //今天
-                    foreach (ReceivedMail receivedMail in POP3ClientController.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -195,7 +172,7 @@ namespace SimpleMail.Window
                     break;        
                 case 1:
                     //近一周
-                    foreach (ReceivedMail receivedMail in POP3ClientController.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -208,7 +185,7 @@ namespace SimpleMail.Window
                     break;     
                 case 2:
                     //近一月
-                    foreach (ReceivedMail receivedMail in POP3ClientController.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -221,7 +198,7 @@ namespace SimpleMail.Window
                     break;
                 default:
                     //近一年
-                    foreach (ReceivedMail receivedMail in POP3ClientController.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in NowClient.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -258,6 +235,10 @@ namespace SimpleMail.Window
         //获取选中序号对应的邮件
         private ReceivedMail GetSelectedMail()
         {
+            if(listBox_receivedMails.SelectedValue is ReceivedMail)
+            {
+                return (ReceivedMail)listBox_receivedMails.SelectedValue;
+            }
             if (listBox_receivedMails.SelectedValue != null)
             {
                 int id = (Int32)listBox_receivedMails.SelectedValue;
@@ -290,13 +271,14 @@ namespace SimpleMail.Window
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 164);
                 label_content.Location = new Point(label_content.Location.X, 362 - 140);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330 - 140);
+                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
             }
             else
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 304);
                 label_content.Location = new Point(label_content.Location.X, 362);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330);
-                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
+                
                 for (int i = 0; i < len; i++)
                 {
                     ListViewItem item = new ListViewItem();
@@ -339,7 +321,7 @@ namespace SimpleMail.Window
             // 获取邮件的真实index
             ReceivedMail mail = GetSelectedMail();
             int id = mail.Id;
-            POP3ClientController.client.DelMail(id);
+            NowClient.DelMail(id);
             receivedMails.Remove(mail);
             listBox_receivedMails.Refresh();
         }
