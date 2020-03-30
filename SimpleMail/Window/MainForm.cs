@@ -219,6 +219,7 @@ namespace SimpleMail.Window
                 else
                     return -1;
             });
+            listBox_receivedMails.DataSource = null;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
