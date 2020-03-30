@@ -34,37 +34,14 @@ namespace SimpleMail.Window
         //设置所有信息
         public void SetAllInfo()
         {
-            SetHelloPanel();
+            receivedMails = NowClient.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
-        }
-
-        //设置欢迎页面信息
-        private void SetHelloPanel()
-        {
-            int hour = DateTime.Now.Hour;
-            string helloString = "";
-            if (hour >= 7 && hour < 12)
-            {
-                helloString = "上午";
-            }
-            else if (hour == 12)
-            {
-                helloString = "中午";
-            }
-            else if (hour > 12 && hour < 19)
-            {
-                helloString = "下午";
-            }
-            else
-            {
-                helloString = "晚上";
-            }
-
-            label_hello.Text = helloString + "好！ " + NowClient.User.Username;
             label_name.Text = NowClient.User.Username;
+            comboBox_date.SelectedIndex = 4;
         }
+
 
         //注销按钮点击
         private void button_logout_Click(object sender, EventArgs e)
@@ -258,6 +235,10 @@ namespace SimpleMail.Window
         //获取选中序号对应的邮件
         private ReceivedMail GetSelectedMail()
         {
+            if(listBox_receivedMails.SelectedValue is ReceivedMail)
+            {
+                return (ReceivedMail)listBox_receivedMails.SelectedValue;
+            }
             if (listBox_receivedMails.SelectedValue != null)
             {
                 int id = (Int32)listBox_receivedMails.SelectedValue;
