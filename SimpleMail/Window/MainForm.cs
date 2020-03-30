@@ -1,17 +1,12 @@
 ﻿using SimpleMail.Communication;
-using SimpleMail.Controller;
+using SimpleMail.Util.Loading;
 using SimpleMail.Entity;
 using SimpleMail.MailForm;
 using SimpleMail.Service;
 using SimpleMail.Util;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleMail.Window
@@ -86,12 +81,34 @@ namespace SimpleMail.Window
         //点击收信
         private void button_read_Click(object sender, EventArgs e)
         {
-            if(DataService.client.State != Pop3STATE.CONNECTED)
+            LoadingHelper.ShowLoading("正在获取邮件，请稍等", this, (obj) =>
             {
-                if (!DataService.client.Login(DataService.client.User))
+                if (DataService.client.State != Pop3STATE.CONNECTED)
                 {
+                    if (!DataService.client.Login(DataService.client.User))
+                    {
+                        //程序显示登录界面
+                        MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
+                        messageForm.ShowDialog();
+                        //显示主界面
+                        if (messageForm.DialogResult == DialogResult.OK)
+                        {
+                            messageForm.Dispose();
+                            Logout();
+                            return;
+                        }
+                        else if (messageForm.DialogResult == DialogResult.Cancel)
+                        {
+                            messageForm.Dispose();
+                            return;
+                        }
+                    }
+                }
+                if (DataService.client.GetAllMail() == -1)
+                {
+                    pictureBox_loading.Visible = false;
                     //程序显示登录界面
-                    MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
+                    MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
                     messageForm.ShowDialog();
                     //显示主界面
                     if (messageForm.DialogResult == DialogResult.OK)
@@ -106,37 +123,18 @@ namespace SimpleMail.Window
                         return;
                     }
                 }
-            }
-            pictureBox_loading.Visible = true;
-            if (DataService.client.GetAllMail() == -1)
-            {
-                pictureBox_loading.Visible = false;
-                //程序显示登录界面
-                MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
-                messageForm.ShowDialog();
-                //显示主界面
-                if (messageForm.DialogResult == DialogResult.OK)
+                else if (DataService.client.GetAllMail() == 0)
                 {
-                    messageForm.Dispose();
-                    Logout();
-                    return;
+                    pictureBox_loading.Visible = false;
+                    //程序显示登录界面
+                    MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
+                    messageForm.ShowDialog();
+                    if (messageForm.DialogResult == DialogResult.Cancel)
+                    {
+                        messageForm.Dispose();
+                    }
                 }
-                else if (messageForm.DialogResult == DialogResult.Cancel)
-                {
-                    messageForm.Dispose();
-                    return;
-                }
-            }else if (DataService.client.GetAllMail() == 0)
-            {
-                pictureBox_loading.Visible = false;
-                //程序显示登录界面
-                MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
-                messageForm.ShowDialog();
-                if (messageForm.DialogResult == DialogResult.Cancel)
-                {
-                    messageForm.Dispose();
-                }
-            }
+            });
             comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
             receivedMails = DataService.client.User.ReceivedMails;
             ReverseUpdate();
