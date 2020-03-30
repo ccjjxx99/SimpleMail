@@ -265,24 +265,27 @@ namespace SimpleMail.Window
             label_receiver.Text = "收件人：" + receivedMail.ToName + " <" + receivedMail.ToAdderss + ">";
             label_date_detail.Text = "时间：" + receivedMail.SendDateTime.ToString();
             label_size.Text = "大小：" + receivedMail.Size.ToString() + " KB";
-            label_content.Text = receivedMail.Body;
+            richTextBox_content.Text = receivedMail.Body;
             int len = receivedMail.Enclosures.Count;
             listView_enclosure.Items.Clear();
             webBrowser_html.Visible = false;
-            label_content.Visible = true;
+            richTextBox_content.Visible = true;
             if(len == 0)
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 164);
-                label_content.Location = new Point(label_content.Location.X, 362 - 140);
+                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362 - 140);
+                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 417 + 140);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330 - 140);
                 webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
             }
             else
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 304);
-                label_content.Location = new Point(label_content.Location.X, 362);
+                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362);
+                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 417);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330);
-                
+                webBrowser_html.Size = new Size(webBrowser_html.Size.Width, 417);
+
                 for (int i = 0; i < len; i++)
                 {
                     ListViewItem item = new ListViewItem();
@@ -297,7 +300,7 @@ namespace SimpleMail.Window
             if (mail != null && !mail.IsText)
             {
                 webBrowser_html.Visible = true;
-                label_content.Visible = false;
+                richTextBox_content.Visible = false;
                 webBrowser_html.DocumentText = mail.Html;
             }
         }

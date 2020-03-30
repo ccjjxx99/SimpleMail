@@ -40,7 +40,6 @@
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
             this.panel_receive = new System.Windows.Forms.Panel();
             this.webBrowser_html = new System.Windows.Forms.WebBrowser();
-            this.label_content = new System.Windows.Forms.Label();
             this.groupBox_infos = new System.Windows.Forms.GroupBox();
             this.listView_enclosure = new System.Windows.Forms.ListView();
             this.label_enclosure = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.button_read = new System.Windows.Forms.Button();
             this.button_write = new System.Windows.Forms.Button();
             this.pictureBox_mail = new System.Windows.Forms.PictureBox();
+            this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
@@ -158,7 +158,7 @@
             // panel_receive
             // 
             this.panel_receive.Controls.Add(this.webBrowser_html);
-            this.panel_receive.Controls.Add(this.label_content);
+            this.panel_receive.Controls.Add(this.richTextBox_content);
             this.panel_receive.Controls.Add(this.groupBox_infos);
             this.panel_receive.Controls.Add(this.label_infos);
             this.panel_receive.Controls.Add(this.listBox_receivedMails);
@@ -177,17 +177,6 @@
             this.webBrowser_html.Size = new System.Drawing.Size(733, 355);
             this.webBrowser_html.TabIndex = 29;
             this.webBrowser_html.Visible = false;
-            // 
-            // label_content
-            // 
-            this.label_content.AutoSize = true;
-            this.label_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_content.Location = new System.Drawing.Point(418, 362);
-            this.label_content.Name = "label_content";
-            this.label_content.Size = new System.Drawing.Size(49, 20);
-            this.label_content.TabIndex = 28;
-            this.label_content.Text = "内容";
             // 
             // groupBox_infos
             // 
@@ -380,6 +369,18 @@
             this.pictureBox_mail.TabIndex = 7;
             this.pictureBox_mail.TabStop = false;
             // 
+            // richTextBox_content
+            // 
+            this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.richTextBox_content.Location = new System.Drawing.Point(400, 330);
+            this.richTextBox_content.Name = "richTextBox_content";
+            this.richTextBox_content.Size = new System.Drawing.Size(733, 355);
+            this.richTextBox_content.TabIndex = 29;
+            this.richTextBox_content.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -436,7 +437,6 @@
         private System.Windows.Forms.ToolStripMenuItem 删除邮件ToolStripMenuItem;
         private System.Windows.Forms.Panel panel_receive;
         private System.Windows.Forms.WebBrowser webBrowser_html;
-        private System.Windows.Forms.Label label_content;
         private System.Windows.Forms.GroupBox groupBox_infos;
         private System.Windows.Forms.ListView listView_enclosure;
         private System.Windows.Forms.Label label_enclosure;
@@ -448,5 +448,6 @@
         private System.Windows.Forms.ListBox listBox_receivedMails;
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.ComboBox comboBox_date;
+        private System.Windows.Forms.RichTextBox richTextBox_content;
     }
 }
