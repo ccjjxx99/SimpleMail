@@ -333,5 +333,30 @@ namespace SimpleMail.Window
                 this.Location = new Point(this.Location.X + e.X - point.X, this.Location.Y + e.Y - point.Y);
             }
         }
+
+        private void 删除邮件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 获取邮件的真实index
+            ReceivedMail mail = GetSelectedMail();
+            int id = mail.Id;
+            NowClient.DelMail(id);
+            receivedMails.Remove(mail);
+            listBox_receivedMails.Refresh();
+        }
+
+        private void listBox_receivedMails_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int posindex = listBox_receivedMails.IndexFromPoint(new Point(e.X, e.Y));
+                listBox_receivedMails.ContextMenuStrip = null;
+                if (posindex >= 0 && posindex < listBox_receivedMails.Items.Count)
+                {
+                    listBox_receivedMails.SelectedIndex = posindex;
+                    contextMenuStrip1.Show(listBox_receivedMails, new Point(e.X, e.Y));
+                }
+            }
+            listBox_receivedMails.Refresh();
+        }
     }
 }

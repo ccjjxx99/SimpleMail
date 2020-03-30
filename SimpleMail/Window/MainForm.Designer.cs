@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("code.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("index.html", 6);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("1.xml", 7);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("3.psd", 0);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("code.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("index.html", 6);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("1.xml", 7);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("3.psd", 0);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button_logout = new System.Windows.Forms.Button();
             this.button_min = new System.Windows.Forms.Button();
@@ -57,6 +57,8 @@
             this.label_receiver = new System.Windows.Forms.Label();
             this.label_infos = new System.Windows.Forms.Label();
             this.listBox_receivedMails = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除邮件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_date = new System.Windows.Forms.Label();
             this.comboBox_date = new System.Windows.Forms.ComboBox();
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
@@ -68,6 +70,7 @@
             this.panel_hello.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +79,7 @@
             // 
             this.button_logout.FlatAppearance.BorderSize = 0;
             this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_logout.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_logout.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_logout.ForeColor = System.Drawing.Color.LightGray;
             this.button_logout.Location = new System.Drawing.Point(1022, 3);
             this.button_logout.Margin = new System.Windows.Forms.Padding(5);
@@ -94,7 +97,7 @@
             // 
             this.button_min.FlatAppearance.BorderSize = 0;
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_min.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
             this.button_min.Location = new System.Drawing.Point(1152, 3);
             this.button_min.Margin = new System.Windows.Forms.Padding(5);
@@ -112,7 +115,7 @@
             // 
             this.button_close.FlatAppearance.BorderSize = 0;
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_close.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
             this.button_close.Location = new System.Drawing.Point(1282, 3);
             this.button_close.Margin = new System.Windows.Forms.Padding(5);
@@ -131,13 +134,13 @@
             this.panel_hello.Controls.Add(this.label_hello);
             this.panel_hello.Location = new System.Drawing.Point(200, 100);
             this.panel_hello.Name = "panel_hello";
-            this.panel_hello.Size = new System.Drawing.Size(1150, 750);
+            this.panel_hello.Size = new System.Drawing.Size(1150, 718);
             this.panel_hello.TabIndex = 16;
             // 
             // label_hello
             // 
             this.label_hello.AutoSize = true;
-            this.label_hello.Font = new System.Drawing.Font("SimSun", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_hello.Font = new System.Drawing.Font("宋体", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_hello.Location = new System.Drawing.Point(212, 330);
             this.label_hello.Name = "label_hello";
             this.label_hello.Size = new System.Drawing.Size(129, 43);
@@ -164,7 +167,7 @@
             this.panel_receive.Controls.Add(this.comboBox_date);
             this.panel_receive.Location = new System.Drawing.Point(200, 100);
             this.panel_receive.Name = "panel_receive";
-            this.panel_receive.Size = new System.Drawing.Size(1150, 760);
+            this.panel_receive.Size = new System.Drawing.Size(1150, 705);
             this.panel_receive.TabIndex = 19;
             this.panel_receive.Visible = false;
             // 
@@ -173,14 +176,14 @@
             this.webBrowser_html.Location = new System.Drawing.Point(400, 330);
             this.webBrowser_html.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser_html.Name = "webBrowser_html";
-            this.webBrowser_html.Size = new System.Drawing.Size(733, 417);
+            this.webBrowser_html.Size = new System.Drawing.Size(733, 355);
             this.webBrowser_html.TabIndex = 29;
             this.webBrowser_html.Visible = false;
             // 
             // label_content
             // 
             this.label_content.AutoSize = true;
-            this.label_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_content.Location = new System.Drawing.Point(418, 362);
             this.label_content.Name = "label_content";
@@ -196,7 +199,7 @@
             this.groupBox_infos.Controls.Add(this.label_date_detail);
             this.groupBox_infos.Controls.Add(this.label_sender);
             this.groupBox_infos.Controls.Add(this.label_receiver);
-            this.groupBox_infos.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox_infos.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_infos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox_infos.Location = new System.Drawing.Point(401, 20);
             this.groupBox_infos.Name = "groupBox_infos";
@@ -209,18 +212,18 @@
             // 
             this.listView_enclosure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.listView_enclosure.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView_enclosure.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView_enclosure.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
             this.listView_enclosure.Name = "listView_enclosure";
             this.listView_enclosure.Size = new System.Drawing.Size(715, 84);
@@ -304,6 +307,7 @@
             // 
             this.listBox_receivedMails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.listBox_receivedMails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox_receivedMails.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox_receivedMails.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.listBox_receivedMails.FormattingEnabled = true;
             this.listBox_receivedMails.ItemHeight = 23;
@@ -312,11 +316,27 @@
             this.listBox_receivedMails.Size = new System.Drawing.Size(336, 621);
             this.listBox_receivedMails.TabIndex = 21;
             this.listBox_receivedMails.SelectedIndexChanged += new System.EventHandler(this.listBox_receivedMails_SelectedIndexChanged);
+            this.listBox_receivedMails.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listBox_receivedMails_MouseUp);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除邮件ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 28);
+            // 
+            // 删除邮件ToolStripMenuItem
+            // 
+            this.删除邮件ToolStripMenuItem.Name = "删除邮件ToolStripMenuItem";
+            this.删除邮件ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.删除邮件ToolStripMenuItem.Text = "删除邮件";
+            this.删除邮件ToolStripMenuItem.Click += new System.EventHandler(this.删除邮件ToolStripMenuItem_Click);
             // 
             // label_date
             // 
             this.label_date.AutoSize = true;
-            this.label_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_date.Location = new System.Drawing.Point(21, 32);
             this.label_date.Name = "label_date";
             this.label_date.Size = new System.Drawing.Size(109, 20);
@@ -328,7 +348,7 @@
             this.comboBox_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.comboBox_date.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox_date.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_date.FormattingEnabled = true;
             this.comboBox_date.Items.AddRange(new object[] {
@@ -404,7 +424,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.ClientSize = new System.Drawing.Size(1400, 900);
+            this.ClientSize = new System.Drawing.Size(1400, 800);
             this.Controls.Add(this.pictureBox_loading);
             this.Controls.Add(this.panel_receive);
             this.Controls.Add(this.label_name);
@@ -416,12 +436,12 @@
             this.Controls.Add(this.button_close);
             this.Controls.Add(this.button_min);
             this.Controls.Add(this.button_logout);
-            this.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.MaximumSize = new System.Drawing.Size(1400, 900);
-            this.MinimumSize = new System.Drawing.Size(1400, 900);
+            this.MaximumSize = new System.Drawing.Size(1400, 800);
+            this.MinimumSize = new System.Drawing.Size(1400, 800);
             this.Name = "MainForm";
             this.Opacity = 0.9D;
             this.Text = "MainForm";
@@ -433,6 +453,7 @@
             this.panel_receive.PerformLayout();
             this.groupBox_infos.ResumeLayout(false);
             this.groupBox_infos.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).EndInit();
             this.ResumeLayout(false);
@@ -469,5 +490,7 @@
         private System.Windows.Forms.Label label_content;
         private System.Windows.Forms.WebBrowser webBrowser_html;
         private System.Windows.Forms.PictureBox pictureBox_loading;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 删除邮件ToolStripMenuItem;
     }
 }
