@@ -106,7 +106,6 @@ namespace SimpleMail.Window
                 }
                 if (DataService.client.GetAllMail() == -1)
                 {
-                    pictureBox_loading.Visible = false;
                     //程序显示登录界面
                     MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
                     messageForm.ShowDialog();
@@ -125,7 +124,6 @@ namespace SimpleMail.Window
                 }
                 else if (DataService.client.GetAllMail() == 0)
                 {
-                    pictureBox_loading.Visible = false;
                     //程序显示登录界面
                     MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
                     messageForm.ShowDialog();

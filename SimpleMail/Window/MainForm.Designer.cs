@@ -40,6 +40,7 @@
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
             this.panel_receive = new System.Windows.Forms.Panel();
             this.webBrowser_html = new System.Windows.Forms.WebBrowser();
+            this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.groupBox_infos = new System.Windows.Forms.GroupBox();
             this.listView_enclosure = new System.Windows.Forms.ListView();
             this.label_enclosure = new System.Windows.Forms.Label();
@@ -51,16 +52,13 @@
             this.listBox_receivedMails = new System.Windows.Forms.ListBox();
             this.label_date = new System.Windows.Forms.Label();
             this.comboBox_date = new System.Windows.Forms.ComboBox();
-            this.pictureBox_loading = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button_read = new System.Windows.Forms.Button();
             this.button_write = new System.Windows.Forms.Button();
             this.pictureBox_mail = new System.Windows.Forms.PictureBox();
-            this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,6 +175,20 @@
             this.webBrowser_html.Size = new System.Drawing.Size(733, 355);
             this.webBrowser_html.TabIndex = 29;
             this.webBrowser_html.Visible = false;
+            // 
+            // richTextBox_content
+            // 
+            this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.richTextBox_content.Location = new System.Drawing.Point(400, 330);
+            this.richTextBox_content.MaximumSize = new System.Drawing.Size(733, 495);
+            this.richTextBox_content.MinimumSize = new System.Drawing.Size(733, 355);
+            this.richTextBox_content.Name = "richTextBox_content";
+            this.richTextBox_content.Size = new System.Drawing.Size(733, 355);
+            this.richTextBox_content.TabIndex = 29;
+            this.richTextBox_content.Text = "";
             // 
             // groupBox_infos
             // 
@@ -313,18 +325,6 @@
             this.comboBox_date.TabIndex = 4;
             this.comboBox_date.SelectedIndexChanged += new System.EventHandler(this.comboBox_date_SelectedIndexChanged);
             // 
-            // pictureBox_loading
-            // 
-            this.pictureBox_loading.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_loading.Image = global::SimpleMail.Properties.Resources.Loading;
-            this.pictureBox_loading.Location = new System.Drawing.Point(701, 28);
-            this.pictureBox_loading.Name = "pictureBox_loading";
-            this.pictureBox_loading.Size = new System.Drawing.Size(37, 37);
-            this.pictureBox_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox_loading.TabIndex = 30;
-            this.pictureBox_loading.TabStop = false;
-            this.pictureBox_loading.Visible = false;
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -369,20 +369,6 @@
             this.pictureBox_mail.TabIndex = 7;
             this.pictureBox_mail.TabStop = false;
             // 
-            // richTextBox_content
-            // 
-            this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.richTextBox_content.Location = new System.Drawing.Point(400, 330);
-            this.richTextBox_content.MaximumSize = new System.Drawing.Size(733, 495);
-            this.richTextBox_content.MinimumSize = new System.Drawing.Size(733, 355);
-            this.richTextBox_content.Name = "richTextBox_content";
-            this.richTextBox_content.Size = new System.Drawing.Size(733, 355);
-            this.richTextBox_content.TabIndex = 29;
-            this.richTextBox_content.Text = "";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -390,7 +376,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(1400, 800);
             this.Controls.Add(this.panel_receive);
-            this.Controls.Add(this.pictureBox_loading);
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_read);
@@ -415,7 +400,6 @@
             this.panel_receive.PerformLayout();
             this.groupBox_infos.ResumeLayout(false);
             this.groupBox_infos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_loading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -434,7 +418,6 @@
         private System.Windows.Forms.ToolTip toolTip_button;
         private System.Windows.Forms.Label label_name;
         private System.Windows.Forms.ImageList imageList_enclosures;
-        private System.Windows.Forms.PictureBox pictureBox_loading;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 删除邮件ToolStripMenuItem;
         private System.Windows.Forms.Panel panel_receive;
