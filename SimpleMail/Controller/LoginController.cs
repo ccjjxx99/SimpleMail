@@ -27,9 +27,9 @@ namespace SimpleMail.Controller
             if (pop3Client.Login(user))  //信息正确
             {
                 //返回用户对象
+                user.isLogin = true;
                 SerializeUtil.SerializeUser(user);
-                POP3ClientController.AddPOP3Client(pop3Client);
-                MainForm.NowClient = pop3Client;
+                POP3ClientController.client = pop3Client;
                 return true;
             }
 
@@ -43,7 +43,6 @@ namespace SimpleMail.Controller
         /// <returns>登录过返回对象，否则返回null</returns>
         public static bool IsEverLoggedIn()
         {
-            List<string> filenames = new List<string>();
             DirectoryInfo dir = new DirectoryInfo(SerializeUtil.Dir);
             if (!Directory.Exists(SerializeUtil.Dir))
             {
@@ -57,11 +56,13 @@ namespace SimpleMail.Controller
                 {
                     //获得用户信息
                     User user = SerializeUtil.DeSerializeUser(info.FullName);
-                    POP3Client pop3Client = new POP3Client(user);
-                    POP3ClientController.AddPOP3Client(pop3Client);
+                    if (user.isLogin)
+                    {
+                        POP3Client pop3Client = new POP3Client(user);
+                        POP3ClientController.client = pop3Client;
+                        return true;
+                    }
                 }
-                MainForm.NowClient = POP3ClientController.GetFirstPOP3Client();
-                return true;
             }
             return false;
         }

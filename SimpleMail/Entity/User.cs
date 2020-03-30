@@ -15,6 +15,8 @@ namespace SimpleMail.Entity
     [Serializable]
     public class User
     {
+        //是否上次登录
+        public bool isLogin { get; set; }
         //用户名（邮箱地址）
         public string Username { get; set; }
         //密码
