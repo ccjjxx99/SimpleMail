@@ -316,11 +316,15 @@ namespace SimpleMail.Window
         private void 删除邮件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 获取邮件的真实index
-            ReceivedMail mail = GetSelectedMail();
-            int id = mail.Id;
-            POP3ClientController.client.DelMail(id);
-            receivedMails.Remove(mail);
-            listBox_receivedMails.Refresh();
+            MessageForm messageForm = new MessageForm("警告", "确定删除该邮件吗？", "取消", "删除");
+            messageForm.ShowDialog();
+            if (messageForm.DialogResult == DialogResult.OK)
+            {
+                ReceivedMail mail = GetSelectedMail();
+                POP3ClientController.client.DelMail(mail.Id);
+                receivedMails.Remove(mail);
+                listBox_receivedMails.Refresh();
+            }
         }
 
         private void listBox_receivedMails_MouseUp(object sender, MouseEventArgs e)
