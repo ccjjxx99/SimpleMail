@@ -49,7 +49,7 @@
     <Compile Include="Communication\Communicater.cs" />
     <Compile Include="Communication\POP3Client.cs" />
     <Compile Include="Controller\LoginController.cs" />
-    <Compile Include="Controller\POP3ClientController.cs" />
+    <Compile Include="Service\DataService.cs" />
     <Compile Include="Entity\ReceivedMail.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Util\EnclosureUtil.cs" />

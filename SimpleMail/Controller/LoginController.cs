@@ -1,5 +1,6 @@
 ﻿using SimpleMail.Communication;
 using SimpleMail.Entity;
+using SimpleMail.Service;
 using SimpleMail.Util;
 using SimpleMail.Window;
 using System;
@@ -29,7 +30,7 @@ namespace SimpleMail.Controller
                 //返回用户对象
                 user.isLogin = true;
                 SerializeUtil.SerializeUser(user);
-                POP3ClientController.client = pop3Client;
+                DataService.client = pop3Client;
                 return true;
             }
 
@@ -59,7 +60,7 @@ namespace SimpleMail.Controller
                     if (user.isLogin)
                     {
                         POP3Client pop3Client = new POP3Client(user);
-                        POP3ClientController.client = pop3Client;
+                        DataService.client = pop3Client;
                         return true;
                     }
                 }
