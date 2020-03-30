@@ -90,7 +90,7 @@ namespace SimpleMail.Window
                 if (!POP3ClientController.client.Login(POP3ClientController.client.User))
                 {
                     //程序显示登录界面
-                    MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "取消", "注销");
+                    MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
                     messageForm.ShowDialog();
                     //显示主界面
                     if (messageForm.DialogResult == DialogResult.OK)

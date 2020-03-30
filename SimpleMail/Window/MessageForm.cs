@@ -19,7 +19,7 @@ namespace SimpleMail.MailForm
     {
         private Point point;    //当前位置，用于窗口移动
 
-        public MessageForm(string title, string content, string buttonCancelText, string buttonOkText)
+        public MessageForm(string title, string content, string buttonOkText, string  buttonCancelText)
         {
             InitializeComponent();
             label_title.Text = title;
