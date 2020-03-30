@@ -271,13 +271,14 @@ namespace SimpleMail.Window
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 164);
                 label_content.Location = new Point(label_content.Location.X, 362 - 140);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330 - 140);
+                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
             }
             else
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 304);
                 label_content.Location = new Point(label_content.Location.X, 362);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330);
-                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 417 + 140);
+                
                 for (int i = 0; i < len; i++)
                 {
                     ListViewItem item = new ListViewItem();

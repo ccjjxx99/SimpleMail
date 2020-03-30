@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("code.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("index.html", 6);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("1.xml", 7);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("3.psd", 0);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("code.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("xx.rar", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("index.html", 6);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("txt.txt", 2);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("h.pdf", 4);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("1.xml", 7);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("2.pptx", 5);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("3.psd", 0);
             this.button_logout = new System.Windows.Forms.Button();
             this.button_min = new System.Windows.Forms.Button();
             this.button_close = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_logout.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_logout.ForeColor = System.Drawing.Color.LightGray;
-            this.button_logout.Location = new System.Drawing.Point(1022, 3);
+            this.button_logout.Location = new System.Drawing.Point(1079, 3);
             this.button_logout.Margin = new System.Windows.Forms.Padding(5);
             this.button_logout.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_logout.MinimumSize = new System.Drawing.Size(100, 50);
@@ -96,7 +96,7 @@
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
-            this.button_min.Location = new System.Drawing.Point(1152, 3);
+            this.button_min.Location = new System.Drawing.Point(1189, 3);
             this.button_min.Margin = new System.Windows.Forms.Padding(5);
             this.button_min.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_min.MinimumSize = new System.Drawing.Size(100, 50);
@@ -114,7 +114,7 @@
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
-            this.button_close.Location = new System.Drawing.Point(1282, 3);
+            this.button_close.Location = new System.Drawing.Point(1299, 3);
             this.button_close.Margin = new System.Windows.Forms.Padding(5);
             this.button_close.MaximumSize = new System.Drawing.Size(100, 50);
             this.button_close.MinimumSize = new System.Drawing.Size(100, 50);
@@ -361,14 +361,14 @@
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
             this.listView_enclosure.Name = "listView_enclosure";
             this.listView_enclosure.Size = new System.Drawing.Size(715, 84);
