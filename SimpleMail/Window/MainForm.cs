@@ -107,7 +107,6 @@ namespace SimpleMail.Window
                 }
             }
             pictureBox_loading.Visible = true;
-            this.Refresh();
             if (POP3ClientController.client.GetAllMail() == -1)
             {
                 pictureBox_loading.Visible = false;
@@ -139,9 +138,7 @@ namespace SimpleMail.Window
             }
             comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
             receivedMails = POP3ClientController.client.User.ReceivedMails;
-            listBox_receivedMails.DataSource = receivedMails;
-            listBox_receivedMails.DisplayMember = "From";
-            listBox_receivedMails.ValueMember = "Id";
+            ReverseUpdate();
             ShowMailText(GetSelectedMail());
             panel_receive.Show();
             webBrowser_html.Refresh();
@@ -210,6 +207,12 @@ namespace SimpleMail.Window
                     }
                     break;
             }
+            ReverseUpdate();
+        }
+
+        //逆序更新
+        private void ReverseUpdate()
+        {
             receivedMails.Sort((left, right) =>
             {
                 if (left.SendDateTime < right.SendDateTime)
