@@ -29,12 +29,48 @@ namespace SimpleMail.Window
         //设置所有信息
         public void SetAllInfo()
         {
+            //设置名称
+            label_name.Text = DataService.client.User.Username;
+
+            //设置收件panel
             receivedMails = DataService.client.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
-            label_name.Text = DataService.client.User.Username;
             comboBox_date.SelectedIndex = 4;
+
+            //设置欢迎panel
+            SetHelloPanel();
+        }
+
+        //设置欢迎界面
+        private void SetHelloPanel()
+        {
+            //登录过不显示
+            if (!DataService.isFirstLogin)
+                return;
+            //第一次登录显示欢迎界面
+            int hour = DateTime.Now.Hour;
+            string helloString = "";
+            if (hour >= 7 && hour < 12)
+            {
+                helloString = "上午";
+            }
+            else if (hour == 12)
+            {
+                helloString = "中午";
+            }
+            else if (hour > 12 && hour < 19)
+            {
+                helloString = "下午";
+            }
+            else
+            {
+                helloString = "晚上";
+            }
+            label_hello.Text = helloString + "好！ " + DataService.client.User.Username;
+            panel_hello.Visible = true;
+            panel_receive.Visible = false;
         }
 
         //注销按钮点击
@@ -137,8 +173,8 @@ namespace SimpleMail.Window
             receivedMails = DataService.client.User.ReceivedMails;
             ReverseUpdate();
             ShowMailText(GetSelectedMail());
+            panel_hello.Visible = false;
             panel_receive.Show();
-            webBrowser_html.Refresh();
         }
 
         //时间选择框选中项改变事件
@@ -349,6 +385,19 @@ namespace SimpleMail.Window
                 }
             }
             listBox_receivedMails.Refresh();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            point = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(this.Location.X + e.X - point.X, this.Location.Y + e.Y - point.Y);
+            }
         }
     }
 }

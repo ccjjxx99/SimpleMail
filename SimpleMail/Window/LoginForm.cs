@@ -22,15 +22,15 @@ namespace SimpleMail.Window
         public LoginForm()
         {
             InitializeComponent();
-            SetDefault();
+            //SetDefault();
         }
 
-        //设置port输入框默认值
-        private void SetDefault()
-        {
-            textBox_port.Text = "110";
-            textBox_port.ForeColor = Color.Gray;
-        }
+        ////设置port输入框默认值
+        //private void SetDefault()
+        //{
+        //    textBox_port.Text = "110";
+        //    textBox_port.ForeColor = Color.Gray;
+        //}
 
         //最小化
         private void button_min_Click(object sender, EventArgs e)
@@ -63,22 +63,16 @@ namespace SimpleMail.Window
         //登录
         private void button_login_Click(object sender, EventArgs e)
         {
-            string address = textBox_address.Text;
             string username = textBox_username.Text;
             string password = textBox_password.Text;
-            int port = 110;
-            if (!string.IsNullOrEmpty(textBox_port.Text))
-            {
-                port = Convert.ToInt32(textBox_port.Text);
-            }
             //先判断是否有空，即信息未填完
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 return;
             }
 
             //登录
-            if (!LoginController.Login(address, username, password, port))
+            if (!LoginController.Login(username, password))
             {
                 MessageBox.Show("地址或用户名、密码错误", "登录提示");
             }
@@ -88,33 +82,33 @@ namespace SimpleMail.Window
             }
         }
 
-        //port输入框键盘按下事件
-        private void textBox_port_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar != '\b')//这是允许输入退格键 
-            {
-                if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字 
-                {
-                    e.Handled = true;
-                }
-            }
-        }
+        ////port输入框键盘按下事件
+        //private void textBox_port_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar != '\b')//这是允许输入退格键 
+        //    {
+        //        if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字 
+        //        {
+        //            e.Handled = true;
+        //        }
+        //    }
+        //}
 
-        //port输入框输入事件
-        private void textBox_port_Enter(object sender, EventArgs e)
-        {
-            if (textBox_port.Text == "110")
-            {
-                textBox_port.Text = "";
-                textBox_port.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            }
-        }
+        ////port输入框输入事件
+        //private void textBox_port_Enter(object sender, EventArgs e)
+        //{
+        //    if (textBox_port.Text == "110")
+        //    {
+        //        textBox_port.Text = "";
+        //        textBox_port.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+        //    }
+        //}
 
-        //移开事件
-        private void textBox_port_Leave(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(textBox_port.Text))
-                SetDefault();
-        }
+        ////移开事件
+        //private void textBox_port_Leave(object sender, EventArgs e)
+        //{
+        //    if (String.IsNullOrEmpty(textBox_port.Text))
+        //        SetDefault();
+        //}
     }
 }

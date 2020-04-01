@@ -31,11 +31,7 @@
             this.button_min = new System.Windows.Forms.Button();
             this.button_close = new System.Windows.Forms.Button();
             this.label_username = new System.Windows.Forms.Label();
-            this.label_address = new System.Windows.Forms.Label();
-            this.label_port = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
-            this.textBox_address = new System.Windows.Forms.TextBox();
-            this.textBox_port = new System.Windows.Forms.TextBox();
             this.textBox_username = new System.Windows.Forms.TextBox();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.button_login = new System.Windows.Forms.Button();
@@ -80,69 +76,22 @@
             this.label_username.AutoSize = true;
             this.label_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_username.Location = new System.Drawing.Point(12, 350);
+            this.label_username.Location = new System.Drawing.Point(12, 200);
             this.label_username.Name = "label_username";
             this.label_username.Size = new System.Drawing.Size(119, 20);
             this.label_username.TabIndex = 4;
             this.label_username.Text = "    用户名:";
-            // 
-            // label_address
-            // 
-            this.label_address.AutoSize = true;
-            this.label_address.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_address.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_address.Location = new System.Drawing.Point(12, 190);
-            this.label_address.Name = "label_address";
-            this.label_address.Size = new System.Drawing.Size(119, 20);
-            this.label_address.TabIndex = 5;
-            this.label_address.Text = "服务器地址:";
-            // 
-            // label_port
-            // 
-            this.label_port.AutoSize = true;
-            this.label_port.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_port.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_port.Location = new System.Drawing.Point(12, 270);
-            this.label_port.Name = "label_port";
-            this.label_port.Size = new System.Drawing.Size(119, 20);
-            this.label_port.TabIndex = 6;
-            this.label_port.Text = "    端口号:";
             // 
             // label_password
             // 
             this.label_password.AutoSize = true;
             this.label_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_password.Location = new System.Drawing.Point(12, 430);
+            this.label_password.Location = new System.Drawing.Point(12, 300);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(119, 20);
             this.label_password.TabIndex = 7;
             this.label_password.Text = "      密码:";
-            // 
-            // textBox_address
-            // 
-            this.textBox_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.textBox_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_address.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_address.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_address.Location = new System.Drawing.Point(152, 190);
-            this.textBox_address.Name = "textBox_address";
-            this.textBox_address.Size = new System.Drawing.Size(313, 23);
-            this.textBox_address.TabIndex = 8;
-            // 
-            // textBox_port
-            // 
-            this.textBox_port.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.textBox_port.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_port.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_port.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_port.Location = new System.Drawing.Point(152, 270);
-            this.textBox_port.Name = "textBox_port";
-            this.textBox_port.Size = new System.Drawing.Size(313, 23);
-            this.textBox_port.TabIndex = 9;
-            this.textBox_port.Enter += new System.EventHandler(this.textBox_port_Enter);
-            this.textBox_port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_port_KeyPress);
-            this.textBox_port.Leave += new System.EventHandler(this.textBox_port_Leave);
             // 
             // textBox_username
             // 
@@ -150,7 +99,7 @@
             this.textBox_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_username.Location = new System.Drawing.Point(152, 350);
+            this.textBox_username.Location = new System.Drawing.Point(152, 200);
             this.textBox_username.Name = "textBox_username";
             this.textBox_username.Size = new System.Drawing.Size(313, 23);
             this.textBox_username.TabIndex = 10;
@@ -161,7 +110,7 @@
             this.textBox_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_password.Location = new System.Drawing.Point(152, 427);
+            this.textBox_password.Location = new System.Drawing.Point(152, 300);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(313, 23);
@@ -172,7 +121,7 @@
             this.button_login.FlatAppearance.BorderSize = 0;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_login.Image = global::SimpleMail.Properties.Resources.dneglu;
-            this.button_login.Location = new System.Drawing.Point(170, 500);
+            this.button_login.Location = new System.Drawing.Point(170, 400);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(160, 80);
             this.button_login.TabIndex = 12;
@@ -194,23 +143,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.ClientSize = new System.Drawing.Size(500, 620);
+            this.ClientSize = new System.Drawing.Size(500, 520);
             this.Controls.Add(this.button_login);
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.textBox_username);
-            this.Controls.Add(this.textBox_port);
-            this.Controls.Add(this.textBox_address);
             this.Controls.Add(this.label_password);
-            this.Controls.Add(this.label_port);
-            this.Controls.Add(this.label_address);
             this.Controls.Add(this.label_username);
             this.Controls.Add(this.pictureBox_login);
             this.Controls.Add(this.button_close);
             this.Controls.Add(this.button_min);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(500, 620);
-            this.MinimumSize = new System.Drawing.Size(500, 620);
+            this.MaximumSize = new System.Drawing.Size(500, 520);
+            this.MinimumSize = new System.Drawing.Size(500, 520);
             this.Name = "LoginForm";
             this.Opacity = 0.9D;
             this.Text = "LoginForm";
@@ -228,11 +173,7 @@
         private System.Windows.Forms.Button button_close;
         private System.Windows.Forms.PictureBox pictureBox_login;
         private System.Windows.Forms.Label label_username;
-        private System.Windows.Forms.Label label_address;
-        private System.Windows.Forms.Label label_port;
         private System.Windows.Forms.Label label_password;
-        private System.Windows.Forms.TextBox textBox_address;
-        private System.Windows.Forms.TextBox textBox_port;
         private System.Windows.Forms.TextBox textBox_username;
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Button button_login;

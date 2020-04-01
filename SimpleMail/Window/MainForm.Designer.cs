@@ -52,14 +52,20 @@
             this.listBox_receivedMails = new System.Windows.Forms.ListBox();
             this.label_date = new System.Windows.Forms.Label();
             this.comboBox_date = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button_read = new System.Windows.Forms.Button();
             this.button_write = new System.Windows.Forms.Button();
             this.pictureBox_mail = new System.Windows.Forms.PictureBox();
+            this.panel_hello = new System.Windows.Forms.Panel();
+            this.label_hello = new System.Windows.Forms.Label();
+            this.panel_title = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
+            this.panel_hello.SuspendLayout();
+            this.panel_title.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_logout
@@ -68,12 +74,12 @@
             this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_logout.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_logout.ForeColor = System.Drawing.Color.LightGray;
-            this.button_logout.Location = new System.Drawing.Point(1079, 3);
+            this.button_logout.Location = new System.Drawing.Point(1075, 0);
             this.button_logout.Margin = new System.Windows.Forms.Padding(5);
-            this.button_logout.MaximumSize = new System.Drawing.Size(100, 50);
-            this.button_logout.MinimumSize = new System.Drawing.Size(100, 50);
+            this.button_logout.MaximumSize = new System.Drawing.Size(100, 60);
+            this.button_logout.MinimumSize = new System.Drawing.Size(100, 60);
             this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(100, 50);
+            this.button_logout.Size = new System.Drawing.Size(100, 60);
             this.button_logout.TabIndex = 4;
             this.button_logout.Text = "[⬅";
             this.toolTip_button.SetToolTip(this.button_logout, "注销");
@@ -86,12 +92,12 @@
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
-            this.button_min.Location = new System.Drawing.Point(1189, 3);
+            this.button_min.Location = new System.Drawing.Point(1185, 0);
             this.button_min.Margin = new System.Windows.Forms.Padding(5);
-            this.button_min.MaximumSize = new System.Drawing.Size(100, 50);
-            this.button_min.MinimumSize = new System.Drawing.Size(100, 50);
+            this.button_min.MaximumSize = new System.Drawing.Size(100, 60);
+            this.button_min.MinimumSize = new System.Drawing.Size(100, 60);
             this.button_min.Name = "button_min";
-            this.button_min.Size = new System.Drawing.Size(100, 50);
+            this.button_min.Size = new System.Drawing.Size(100, 60);
             this.button_min.TabIndex = 5;
             this.button_min.Text = "—";
             this.toolTip_button.SetToolTip(this.button_min, "最小化");
@@ -104,12 +110,12 @@
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
-            this.button_close.Location = new System.Drawing.Point(1299, 3);
+            this.button_close.Location = new System.Drawing.Point(1295, 0);
             this.button_close.Margin = new System.Windows.Forms.Padding(5);
-            this.button_close.MaximumSize = new System.Drawing.Size(100, 50);
-            this.button_close.MinimumSize = new System.Drawing.Size(100, 50);
+            this.button_close.MaximumSize = new System.Drawing.Size(100, 60);
+            this.button_close.MinimumSize = new System.Drawing.Size(100, 60);
             this.button_close.Name = "button_close";
-            this.button_close.Size = new System.Drawing.Size(100, 50);
+            this.button_close.Size = new System.Drawing.Size(100, 60);
             this.button_close.TabIndex = 6;
             this.button_close.Text = "×";
             this.toolTip_button.SetToolTip(this.button_close, "关闭");
@@ -119,7 +125,7 @@
             // label_name
             // 
             this.label_name.AutoSize = true;
-            this.label_name.Location = new System.Drawing.Point(291, 41);
+            this.label_name.Location = new System.Drawing.Point(622, 19);
             this.label_name.Name = "label_name";
             this.label_name.Size = new System.Drawing.Size(58, 24);
             this.label_name.TabIndex = 17;
@@ -325,25 +331,14 @@
             this.comboBox_date.TabIndex = 4;
             this.comboBox_date.SelectedIndexChanged += new System.EventHandler(this.comboBox_date_SelectedIndexChanged);
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::SimpleMail.Properties.Resources.draft;
-            this.button1.Location = new System.Drawing.Point(12, 650);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 80);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button_read
             // 
             this.button_read.FlatAppearance.BorderSize = 0;
             this.button_read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_read.Image = global::SimpleMail.Properties.Resources.read;
-            this.button_read.Location = new System.Drawing.Point(12, 430);
+            this.button_read.Location = new System.Drawing.Point(0, 481);
             this.button_read.Name = "button_read";
-            this.button_read.Size = new System.Drawing.Size(160, 80);
+            this.button_read.Size = new System.Drawing.Size(180, 80);
             this.button_read.TabIndex = 14;
             this.button_read.UseVisualStyleBackColor = true;
             this.button_read.Click += new System.EventHandler(this.button_read_Click);
@@ -353,21 +348,64 @@
             this.button_write.FlatAppearance.BorderSize = 0;
             this.button_write.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_write.Image = global::SimpleMail.Properties.Resources.write;
-            this.button_write.Location = new System.Drawing.Point(12, 210);
+            this.button_write.Location = new System.Drawing.Point(0, 203);
             this.button_write.Name = "button_write";
-            this.button_write.Size = new System.Drawing.Size(160, 80);
+            this.button_write.Size = new System.Drawing.Size(180, 80);
             this.button_write.TabIndex = 13;
             this.button_write.UseVisualStyleBackColor = true;
             // 
             // pictureBox_mail
             // 
             this.pictureBox_mail.Image = global::SimpleMail.Properties.Resources.simplemail;
-            this.pictureBox_mail.Location = new System.Drawing.Point(47, 28);
+            this.pictureBox_mail.Location = new System.Drawing.Point(12, 12);
             this.pictureBox_mail.Name = "pictureBox_mail";
             this.pictureBox_mail.Size = new System.Drawing.Size(224, 39);
             this.pictureBox_mail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox_mail.TabIndex = 7;
             this.pictureBox_mail.TabStop = false;
+            // 
+            // panel_hello
+            // 
+            this.panel_hello.Controls.Add(this.label_hello);
+            this.panel_hello.Location = new System.Drawing.Point(200, 100);
+            this.panel_hello.Name = "panel_hello";
+            this.panel_hello.Size = new System.Drawing.Size(1150, 688);
+            this.panel_hello.TabIndex = 28;
+            // 
+            // label_hello
+            // 
+            this.label_hello.AutoSize = true;
+            this.label_hello.Font = new System.Drawing.Font("SimSun", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_hello.Location = new System.Drawing.Point(103, 327);
+            this.label_hello.Name = "label_hello";
+            this.label_hello.Size = new System.Drawing.Size(137, 40);
+            this.label_hello.TabIndex = 0;
+            this.label_hello.Text = "label1";
+            // 
+            // panel_title
+            // 
+            this.panel_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel_title.Controls.Add(this.button_logout);
+            this.panel_title.Controls.Add(this.button_min);
+            this.panel_title.Controls.Add(this.button_close);
+            this.panel_title.Controls.Add(this.label_name);
+            this.panel_title.Controls.Add(this.pictureBox_mail);
+            this.panel_title.Location = new System.Drawing.Point(0, 0);
+            this.panel_title.Name = "panel_title";
+            this.panel_title.Size = new System.Drawing.Size(1400, 60);
+            this.panel_title.TabIndex = 29;
+            this.panel_title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel_title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel1.Controls.Add(this.button_write);
+            this.panel1.Controls.Add(this.button_read);
+            this.panel1.Location = new System.Drawing.Point(0, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(180, 760);
+            this.panel1.TabIndex = 30;
             // 
             // MainForm
             // 
@@ -375,15 +413,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_title);
             this.Controls.Add(this.panel_receive);
-            this.Controls.Add(this.label_name);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button_read);
-            this.Controls.Add(this.button_write);
-            this.Controls.Add(this.pictureBox_mail);
-            this.Controls.Add(this.button_close);
-            this.Controls.Add(this.button_min);
-            this.Controls.Add(this.button_logout);
+            this.Controls.Add(this.panel_hello);
             this.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -401,8 +434,12 @@
             this.groupBox_infos.ResumeLayout(false);
             this.groupBox_infos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
+            this.panel_hello.ResumeLayout(false);
+            this.panel_hello.PerformLayout();
+            this.panel_title.ResumeLayout(false);
+            this.panel_title.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -414,7 +451,6 @@
         private System.Windows.Forms.PictureBox pictureBox_mail;
         private System.Windows.Forms.Button button_write;
         private System.Windows.Forms.Button button_read;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip_button;
         private System.Windows.Forms.Label label_name;
         private System.Windows.Forms.ImageList imageList_enclosures;
@@ -434,5 +470,9 @@
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.ComboBox comboBox_date;
         private System.Windows.Forms.RichTextBox richTextBox_content;
+        private System.Windows.Forms.Panel panel_hello;
+        private System.Windows.Forms.Label label_hello;
+        private System.Windows.Forms.Panel panel_title;
+        private System.Windows.Forms.Panel panel1;
     }
 }

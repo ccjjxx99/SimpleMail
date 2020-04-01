@@ -17,5 +17,8 @@ namespace SimpleMail.Service
     {
         //pop3client列表，主要用于管理多用户
         public static POP3Client client;
+
+        //是否是第一次登录
+        public static bool isFirstLogin = false;
     }
 }

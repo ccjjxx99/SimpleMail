@@ -96,7 +96,7 @@
             this.button_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_ok.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_ok.ForeColor = System.Drawing.Color.LightGray;
-            this.button_ok.Location = new System.Drawing.Point(0, 228);
+            this.button_ok.Location = new System.Drawing.Point(0, 237);
             this.button_ok.MaximumSize = new System.Drawing.Size(100, 60);
             this.button_ok.MinimumSize = new System.Drawing.Size(200, 60);
             this.button_ok.Name = "button_ok";
@@ -113,7 +113,7 @@
             this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cancel.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_cancel.ForeColor = System.Drawing.Color.LightGray;
-            this.button_cancel.Location = new System.Drawing.Point(200, 228);
+            this.button_cancel.Location = new System.Drawing.Point(200, 237);
             this.button_cancel.MaximumSize = new System.Drawing.Size(80, 50);
             this.button_cancel.MinimumSize = new System.Drawing.Size(200, 60);
             this.button_cancel.Name = "button_cancel";
@@ -130,7 +130,7 @@
             this.button_sure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_sure.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_sure.ForeColor = System.Drawing.Color.LightGray;
-            this.button_sure.Location = new System.Drawing.Point(0, 228);
+            this.button_sure.Location = new System.Drawing.Point(0, 237);
             this.button_sure.MaximumSize = new System.Drawing.Size(80, 50);
             this.button_sure.MinimumSize = new System.Drawing.Size(400, 60);
             this.button_sure.Name = "button_sure";

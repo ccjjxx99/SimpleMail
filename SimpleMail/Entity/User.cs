@@ -21,18 +21,25 @@ namespace SimpleMail.Entity
         public string Username { get; set; }
         //密码
         public string Password { get; set; }
-        //邮箱服务器地址
-        public string Server { get; set; }
-        //服务器端口号
-        public int Port { get; set; }
+        //邮箱服务器地址POP3
+        public string POP3Server { get; set; }
+        //服务器端口号POPE
+        public int POP3Port { get; set; }
+        //邮箱服务器地址SMTP
+        public string SMTPServer { get; set; }
+        //服务器端口号SMTP
+        public int SMTPPort { get; set; }
         public List<ReceivedMail> ReceivedMails { get; set; }
-        public User(string address, string username, string password, int port = 110)
+        public User(string username, string password, int pop3port = 110, int smtpport = 25)
         {
-            Server = address;
             Username = username;
             Password = password;
-            Port = port;
+            POP3Port = pop3port;
+            SMTPPort = smtpport;
             ReceivedMails = new List<ReceivedMail>(); //邮件链表
+            string domain = username.Split('@')[1];
+            POP3Server = "pop." + domain;
+            SMTPServer = "smtp." + domain;
         }
 
         public User()

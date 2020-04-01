@@ -20,19 +20,23 @@ namespace SimpleMail.Controller
     /// </summary>
     class LoginController
     {
-        public static bool Login(string address, string username, string password, int port)
+        public static bool Login(string username, string password)
         {
-            User user = new User(address, username, password, port);
+            User user = new User(username, password);
             POP3Client pop3Client = new POP3Client(user);
-            //进行连接验证, 信息是否正确
+            //进行连接验证pop, 信息是否正确
             if (pop3Client.Login(user))  //信息正确
             {
                 //返回用户对象
                 user.isLogin = true;
                 SerializeUtil.SerializeUser(user);
                 DataService.client = pop3Client;
+                DataService.isFirstLogin = true;
                 return true;
             }
+
+
+            //还需要验证smtp
 
             //信息错误
             return false;
