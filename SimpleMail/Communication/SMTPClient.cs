@@ -163,7 +163,14 @@ namespace SimpleMail.Communication
         // 断开连接
         public void DisConnect()
         {
-            
+            if (cmdData != "quit")
+            {
+                cmdData = "quit";
+                szData = Encoding.UTF8.GetBytes(cmdData.ToCharArray());
+                StrmWtr.Write(szData, 0, szData.Length);
+                StrmRdr.Close();
+                Server.Close();
+            }
         }
     }
 }

@@ -9,6 +9,13 @@ using System.Windows.Forms;
 
 namespace SimpleMail.Util
 {
+
+    /// <summary>
+    /// 类名：FileUtil
+    /// 作用：附件工具类
+    /// 作者：周潜
+    /// 时间：2020/3/28
+    /// </summary>
     class FileUtil
     {
         /// <summary>
