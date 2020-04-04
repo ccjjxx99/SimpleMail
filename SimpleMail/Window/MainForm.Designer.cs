@@ -72,7 +72,7 @@
             // 
             this.button_logout.FlatAppearance.BorderSize = 0;
             this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_logout.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_logout.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_logout.ForeColor = System.Drawing.Color.LightGray;
             this.button_logout.Location = new System.Drawing.Point(1075, 0);
             this.button_logout.Margin = new System.Windows.Forms.Padding(5);
@@ -90,7 +90,7 @@
             // 
             this.button_min.FlatAppearance.BorderSize = 0;
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_min.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
             this.button_min.Location = new System.Drawing.Point(1185, 0);
             this.button_min.Margin = new System.Windows.Forms.Padding(5);
@@ -108,7 +108,7 @@
             // 
             this.button_close.FlatAppearance.BorderSize = 0;
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_close.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
             this.button_close.Location = new System.Drawing.Point(1295, 0);
             this.button_close.Margin = new System.Windows.Forms.Padding(5);
@@ -186,7 +186,7 @@
             // 
             this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox_content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.richTextBox_content.Location = new System.Drawing.Point(400, 330);
             this.richTextBox_content.MaximumSize = new System.Drawing.Size(733, 495);
@@ -204,7 +204,7 @@
             this.groupBox_infos.Controls.Add(this.label_date_detail);
             this.groupBox_infos.Controls.Add(this.label_sender);
             this.groupBox_infos.Controls.Add(this.label_receiver);
-            this.groupBox_infos.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox_infos.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_infos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox_infos.Location = new System.Drawing.Point(401, 20);
             this.groupBox_infos.Name = "groupBox_infos";
@@ -217,7 +217,7 @@
             // 
             this.listView_enclosure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.listView_enclosure.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView_enclosure.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView_enclosure.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
@@ -304,7 +304,7 @@
             // label_date
             // 
             this.label_date.AutoSize = true;
-            this.label_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_date.Location = new System.Drawing.Point(21, 32);
             this.label_date.Name = "label_date";
             this.label_date.Size = new System.Drawing.Size(109, 20);
@@ -316,7 +316,7 @@
             this.comboBox_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.comboBox_date.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox_date.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_date.FormattingEnabled = true;
             this.comboBox_date.Items.AddRange(new object[] {
@@ -353,6 +353,7 @@
             this.button_write.Size = new System.Drawing.Size(180, 80);
             this.button_write.TabIndex = 13;
             this.button_write.UseVisualStyleBackColor = true;
+            this.button_write.Click += new System.EventHandler(this.button_write_Click);
             // 
             // pictureBox_mail
             // 
@@ -375,7 +376,7 @@
             // label_hello
             // 
             this.label_hello.AutoSize = true;
-            this.label_hello.Font = new System.Drawing.Font("SimSun", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_hello.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_hello.Location = new System.Drawing.Point(103, 327);
             this.label_hello.Name = "label_hello";
             this.label_hello.Size = new System.Drawing.Size(137, 40);
@@ -417,7 +418,7 @@
             this.Controls.Add(this.panel_title);
             this.Controls.Add(this.panel_receive);
             this.Controls.Add(this.panel_hello);
-            this.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);

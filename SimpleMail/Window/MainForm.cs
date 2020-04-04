@@ -1,7 +1,7 @@
 ﻿using SimpleMail.Communication;
 using SimpleMail.Util.Loading;
 using SimpleMail.Entity;
-using SimpleMail.MailForm;
+using SimpleMail.Window;
 using SimpleMail.Service;
 using SimpleMail.Util;
 using System;
@@ -30,10 +30,10 @@ namespace SimpleMail.Window
         public void SetAllInfo()
         {
             //设置名称
-            label_name.Text = DataService.client.User.Username;
+            label_name.Text = DataService.pop3.User.Username;
 
             //设置收件panel
-            receivedMails = DataService.client.User.ReceivedMails;
+            receivedMails = DataService.pop3.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
             listBox_receivedMails.DisplayMember = "From";
             listBox_receivedMails.ValueMember = "Id";
@@ -68,7 +68,7 @@ namespace SimpleMail.Window
             {
                 helloString = "晚上";
             }
-            label_hello.Text = helloString + "好！ " + DataService.client.User.Username;
+            label_hello.Text = helloString + "好！ " + DataService.pop3.User.Username;
             panel_hello.Visible = true;
             panel_receive.Visible = false;
         }
@@ -83,8 +83,8 @@ namespace SimpleMail.Window
         private void Logout()
         {
             this.Hide();
-            DataService.client.User.isLogin = false;
-            SerializeUtil.SerializeUser(DataService.client.User);
+            DataService.pop3.User.isLogin = false;
+            SerializeUtil.SerializeUser(DataService.pop3.User);
             //程序显示登录界面
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
@@ -110,57 +110,32 @@ namespace SimpleMail.Window
         //关闭
         private void button_close_Click(object sender, EventArgs e)
         {
-            SerializeUtil.SerializeUser(DataService.client.User);
+            SerializeUtil.SerializeUser(DataService.pop3.User);
             this.Dispose();
         }
 
         //点击收信
         private void button_read_Click(object sender, EventArgs e)
         {
+            bool isConnected = false;
             LoadingHelper.ShowLoading("正在获取邮件，请稍等", this, (obj) =>
             {
-                if (DataService.client.State != Pop3STATE.CONNECTED)
+                // 如果目前的状态是未连接
+                if (DataService.pop3.State != Pop3STATE.CONNECTED)
                 {
-                    if (!DataService.client.Login(DataService.client.User))
-                    {
-                        //程序显示登录界面
-                        MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
-                        messageForm.ShowDialog();
-                        //显示主界面
-                        if (messageForm.DialogResult == DialogResult.OK)
-                        {
-                            messageForm.Dispose();
-                            Logout();
-                            return;
-                        }
-                        else if (messageForm.DialogResult == DialogResult.Cancel)
-                        {
-                            messageForm.Dispose();
-                            return;
-                        }
-                    }
+                    // 就需要登录
+                    DataService.pop3.Login(DataService.pop3.User);
                 }
-                if (DataService.client.GetAllMail() == -1)
+                //连接后获取邮件
+                int ret = DataService.pop3.GetAllMail();
+                if (ret == 1)
                 {
-                    //程序显示登录界面
-                    MessageForm messageForm = new MessageForm("提醒", "获取邮件失败", "注销", "取消");
-                    messageForm.ShowDialog();
-                    //显示主界面
-                    if (messageForm.DialogResult == DialogResult.OK)
-                    {
-                        messageForm.Dispose();
-                        Logout();
-                        return;
-                    }
-                    else if (messageForm.DialogResult == DialogResult.Cancel)
-                    {
-                        messageForm.Dispose();
-                        return;
-                    }
+                    isConnected = true;
                 }
-                else if (DataService.client.GetAllMail() == 0)
+                else if (ret == 0)
                 {
-                    //程序显示登录界面
+                    isConnected = true;
+                    // 提示一下没收完
                     MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
                     messageForm.ShowDialog();
                     if (messageForm.DialogResult == DialogResult.Cancel)
@@ -169,12 +144,31 @@ namespace SimpleMail.Window
                     }
                 }
             });
-            comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
-            receivedMails = DataService.client.User.ReceivedMails;
-            ReverseUpdate();
-            ShowMailText(GetSelectedMail());
-            panel_hello.Visible = false;
-            panel_receive.Show();
+            if (isConnected)
+            {
+                comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
+                receivedMails = DataService.pop3.User.ReceivedMails;
+                ReverseUpdate();
+                ShowMailText(GetSelectedMail());
+                panel_hello.Visible = false;
+                panel_receive.Show();
+            }
+            else
+            {
+                //程序显示登录界面
+                MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
+                messageForm.ShowDialog();
+                //显示主界面
+                if (messageForm.DialogResult == DialogResult.OK)
+                {
+                    messageForm.Dispose();
+                    Logout();
+                }
+                else if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
+            }
         }
 
         //时间选择框选中项改变事件
@@ -184,12 +178,12 @@ namespace SimpleMail.Window
             switch (comboBox_date.SelectedIndex)
             {
                 case 4:
-                    receivedMails = DataService.client.User.ReceivedMails;
+                    receivedMails = DataService.pop3.User.ReceivedMails;
                     //全部
                     break;                 
                 case 0:
                     //今天
-                    foreach (ReceivedMail receivedMail in DataService.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in DataService.pop3.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -202,7 +196,7 @@ namespace SimpleMail.Window
                     break;        
                 case 1:
                     //近一周
-                    foreach (ReceivedMail receivedMail in DataService.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in DataService.pop3.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -215,7 +209,7 @@ namespace SimpleMail.Window
                     break;     
                 case 2:
                     //近一月
-                    foreach (ReceivedMail receivedMail in DataService.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in DataService.pop3.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -228,7 +222,7 @@ namespace SimpleMail.Window
                     break;
                 default:
                     //近一年
-                    foreach (ReceivedMail receivedMail in DataService.client.User.ReceivedMails)
+                    foreach (ReceivedMail receivedMail in DataService.pop3.User.ReceivedMails)
                     {
                         //精度都调到日
                         DateTime mailDate = Convert.ToDateTime(receivedMail.SendDateTime.ToString("yy/MM/dd"));
@@ -362,10 +356,10 @@ namespace SimpleMail.Window
             if (messageForm.DialogResult == DialogResult.OK)
             {
                 ReceivedMail mail = GetSelectedMail();
-                DataService.client.DelMail(mail.Id);
+                DataService.pop3.DelMail(mail.Id);
                 receivedMails.Remove(mail);
                 //同步更新全局变量
-                DataService.client.User.ReceivedMails = receivedMails;
+                DataService.pop3.User.ReceivedMails = receivedMails;
                 ReverseUpdate();
                 listBox_receivedMails.Refresh();
             }
@@ -398,6 +392,11 @@ namespace SimpleMail.Window
             {
                 this.Location = new Point(this.Location.X + e.X - point.X, this.Location.Y + e.Y - point.Y);
             }
+        }
+
+        private void button_write_Click(object sender, EventArgs e)
+        {
+            new WriteForm() { StartPosition = FormStartPosition.CenterParent }.ShowDialog();
         }
     }
 }

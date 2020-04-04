@@ -20,7 +20,13 @@ namespace SimpleMail.Controller
     /// </summary>
     class LoginController
     {
-        public static bool Login(string username, string password)
+        /// <summary>
+        /// 登录POP3
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool LoginPOP3(string username, string password)
         {
             User user = new User(username, password);
             POP3Client pop3Client = new POP3Client(user);
@@ -30,17 +36,25 @@ namespace SimpleMail.Controller
                 //返回用户对象
                 user.isLogin = true;
                 SerializeUtil.SerializeUser(user);
-                DataService.client = pop3Client;
+                DataService.pop3 = pop3Client;
                 DataService.isFirstLogin = true;
                 return true;
             }
-
-
-            //还需要验证smtp
-
             //信息错误
             return false;
         }
+
+        public static bool LoginSMTP(User user)
+        {
+            SMTPClient smtpClient = new SMTPClient(user);
+            if (smtpClient.Login(user))
+            {
+                DataService.smtp = smtpClient;
+                return true;
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// 是否登录过，记住了密码
@@ -64,7 +78,7 @@ namespace SimpleMail.Controller
                     if (user.isLogin)
                     {
                         POP3Client pop3Client = new POP3Client(user);
-                        DataService.client = pop3Client;
+                        DataService.pop3 = pop3Client;
                         return true;
                     }
                 }

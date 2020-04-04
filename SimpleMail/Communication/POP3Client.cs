@@ -78,7 +78,7 @@ namespace SimpleMail.Communication
             this.User = user;
             try
             {
-                client = new TcpClient(user.POP3Server, 110);
+                client = new TcpClient(user.POP3Server, user.POP3Port);
                 StrmWtr = client.GetStream();
                 StrmRdr = new StreamReader(client.GetStream());
             }

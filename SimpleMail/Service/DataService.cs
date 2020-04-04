@@ -15,8 +15,11 @@ namespace SimpleMail.Service
     /// </summary>
     class DataService
     {
-        //pop3client列表，主要用于管理多用户
-        public static POP3Client client;
+        //pop3client
+        public static POP3Client pop3;
+
+        //smtpclient
+        public static SMTPClient smtp;
 
         //是否是第一次登录
         public static bool isFirstLogin = false;

@@ -72,7 +72,7 @@ namespace SimpleMail.Window
             }
 
             //登录
-            if (!LoginController.Login(username, password))
+            if (!LoginController.LoginPOP3(username, password))
             {
                 MessageBox.Show("地址或用户名、密码错误", "登录提示");
             }

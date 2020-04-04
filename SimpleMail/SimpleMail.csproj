@@ -52,11 +52,13 @@
   <ItemGroup>
     <Compile Include="Communication\Communicater.cs" />
     <Compile Include="Communication\POP3Client.cs" />
+    <Compile Include="Communication\SMTPClient.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Service\DataService.cs" />
     <Compile Include="Entity\ReceivedMail.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Util\EnclosureUtil.cs" />
+    <Compile Include="Util\FileUtil.cs" />
     <Compile Include="Util\Loading\LoadingDot.cs" />
     <Compile Include="Util\Loading\LoadingHelper.cs" />
     <Compile Include="Util\MailTextParserUtil.cs" />
@@ -66,6 +68,12 @@
     </Compile>
     <Compile Include="Util\Loading\FrmLoading.designer.cs">
       <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window\WriteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\WriteForm.Designer.cs">
+      <DependentUpon>WriteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Window\LoginForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="Util\Loading\FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\WriteForm.resx">
+      <DependentUpon>WriteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Window\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

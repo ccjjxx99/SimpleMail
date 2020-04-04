@@ -1,4 +1,4 @@
-﻿namespace SimpleMail.MailForm
+﻿namespace SimpleMail.Window
 {
     partial class MessageForm
     {
