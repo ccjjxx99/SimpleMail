@@ -106,10 +106,6 @@ namespace SimpleMail.Window
             {
                 MessageBox.Show("请先选择一个附件");
             }
-            foreach (object iterm in lsb_attach.Items)
-            {
-                Console.WriteLine(iterm.ToString());
-            }
         }
 
         private void WriteForm_FormClosed(object sender, FormClosedEventArgs e)
