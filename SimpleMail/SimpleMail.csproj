@@ -191,6 +191,7 @@
   <ItemGroup>
     <Content Include="ico.ico" />
     <Content Include="mail.ico" />
+    <None Include="Resources\get.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

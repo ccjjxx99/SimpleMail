@@ -38,6 +38,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除邮件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
+            this.button_write_enclosure = new System.Windows.Forms.Button();
+            this.button_write_send = new System.Windows.Forms.Button();
             this.panel_receive = new System.Windows.Forms.Panel();
             this.webBrowser_html = new System.Windows.Forms.WebBrowser();
             this.richTextBox_content = new System.Windows.Forms.RichTextBox();
@@ -52,31 +54,31 @@
             this.listBox_receivedMails = new System.Windows.Forms.ListBox();
             this.label_date = new System.Windows.Forms.Label();
             this.comboBox_date = new System.Windows.Forms.ComboBox();
-            this.button_read = new System.Windows.Forms.Button();
-            this.button_write = new System.Windows.Forms.Button();
-            this.pictureBox_mail = new System.Windows.Forms.PictureBox();
             this.panel_hello = new System.Windows.Forms.Panel();
             this.label_hello = new System.Windows.Forms.Label();
             this.panel_title = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_write = new System.Windows.Forms.Panel();
-            this.label_write_to = new System.Windows.Forms.Label();
-            this.label_write_subject = new System.Windows.Forms.Label();
-            this.label_write_content = new System.Windows.Forms.Label();
-            this.textBox_write_to = new System.Windows.Forms.TextBox();
-            this.textBox_write_subject = new System.Windows.Forms.TextBox();
-            this.textBox_write_content = new System.Windows.Forms.TextBox();
-            this.button_write_enclosure = new System.Windows.Forms.Button();
-            this.button_write_send = new System.Windows.Forms.Button();
             this.listView_write_enclosures = new System.Windows.Forms.ListView();
+            this.textBox_write_content = new System.Windows.Forms.TextBox();
+            this.textBox_write_subject = new System.Windows.Forms.TextBox();
+            this.textBox_write_to = new System.Windows.Forms.TextBox();
+            this.label_write_content = new System.Windows.Forms.Label();
+            this.label_write_subject = new System.Windows.Forms.Label();
+            this.label_write_to = new System.Windows.Forms.Label();
+            this.label_subject = new System.Windows.Forms.Label();
+            this.button_write = new System.Windows.Forms.Button();
+            this.button_read = new System.Windows.Forms.Button();
+            this.pictureBox_mail = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
             this.groupBox_infos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
             this.panel_hello.SuspendLayout();
             this.panel_title.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_write.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).BeginInit();
             this.SuspendLayout();
             // 
             // button_logout
@@ -170,8 +172,45 @@
             this.删除邮件ToolStripMenuItem.Text = "删除邮件";
             this.删除邮件ToolStripMenuItem.Click += new System.EventHandler(this.删除邮件ToolStripMenuItem_Click);
             // 
+            // button_write_enclosure
+            // 
+            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
+            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_enclosure.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_enclosure.Location = new System.Drawing.Point(831, 536);
+            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.Name = "button_write_enclosure";
+            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.TabIndex = 18;
+            this.button_write_enclosure.Text = "添加附件";
+            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
+            this.button_write_enclosure.UseVisualStyleBackColor = true;
+            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
+            // 
+            // button_write_send
+            // 
+            this.button_write_send.FlatAppearance.BorderSize = 0;
+            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_send.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_send.Location = new System.Drawing.Point(999, 536);
+            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.Name = "button_write_send";
+            this.button_write_send.Size = new System.Drawing.Size(120, 60);
+            this.button_write_send.TabIndex = 18;
+            this.button_write_send.Text = "发送";
+            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
+            this.button_write_send.UseVisualStyleBackColor = true;
+            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
+            // 
             // panel_receive
             // 
+            this.panel_receive.Controls.Add(this.button1);
             this.panel_receive.Controls.Add(this.webBrowser_html);
             this.panel_receive.Controls.Add(this.richTextBox_content);
             this.panel_receive.Controls.Add(this.groupBox_infos);
@@ -209,6 +248,7 @@
             // 
             // groupBox_infos
             // 
+            this.groupBox_infos.Controls.Add(this.label_subject);
             this.groupBox_infos.Controls.Add(this.listView_enclosure);
             this.groupBox_infos.Controls.Add(this.label_enclosure);
             this.groupBox_infos.Controls.Add(this.label_size);
@@ -217,9 +257,9 @@
             this.groupBox_infos.Controls.Add(this.label_receiver);
             this.groupBox_infos.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_infos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox_infos.Location = new System.Drawing.Point(435, 20);
+            this.groupBox_infos.Location = new System.Drawing.Point(435, 8);
             this.groupBox_infos.Name = "groupBox_infos";
-            this.groupBox_infos.Size = new System.Drawing.Size(733, 304);
+            this.groupBox_infos.Size = new System.Drawing.Size(733, 316);
             this.groupBox_infos.TabIndex = 27;
             this.groupBox_infos.TabStop = false;
             this.groupBox_infos.Text = "邮件信息：";
@@ -245,9 +285,9 @@
             this.label_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label_enclosure.Location = new System.Drawing.Point(50, 166);
             this.label_enclosure.Name = "label_enclosure";
-            this.label_enclosure.Size = new System.Drawing.Size(69, 20);
+            this.label_enclosure.Size = new System.Drawing.Size(109, 20);
             this.label_enclosure.TabIndex = 26;
-            this.label_enclosure.Text = "附件：";
+            this.label_enclosure.Text = "附    件：";
             // 
             // label_size
             // 
@@ -273,7 +313,7 @@
             // 
             this.label_sender.AutoSize = true;
             this.label_sender.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label_sender.Location = new System.Drawing.Point(50, 46);
+            this.label_sender.Location = new System.Drawing.Point(50, 25);
             this.label_sender.Name = "label_sender";
             this.label_sender.Size = new System.Drawing.Size(89, 20);
             this.label_sender.TabIndex = 22;
@@ -283,7 +323,7 @@
             // 
             this.label_receiver.AutoSize = true;
             this.label_receiver.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label_receiver.Location = new System.Drawing.Point(131, 81);
+            this.label_receiver.Location = new System.Drawing.Point(130, 58);
             this.label_receiver.Name = "label_receiver";
             this.label_receiver.Size = new System.Drawing.Size(69, 20);
             this.label_receiver.TabIndex = 23;
@@ -305,7 +345,7 @@
             this.listBox_receivedMails.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.listBox_receivedMails.FormattingEnabled = true;
             this.listBox_receivedMails.ItemHeight = 23;
-            this.listBox_receivedMails.Location = new System.Drawing.Point(35, 87);
+            this.listBox_receivedMails.Location = new System.Drawing.Point(34, 120);
             this.listBox_receivedMails.Name = "listBox_receivedMails";
             this.listBox_receivedMails.Size = new System.Drawing.Size(336, 575);
             this.listBox_receivedMails.TabIndex = 21;
@@ -316,7 +356,7 @@
             // 
             this.label_date.AutoSize = true;
             this.label_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_date.Location = new System.Drawing.Point(30, 32);
+            this.label_date.Location = new System.Drawing.Point(30, 69);
             this.label_date.Name = "label_date";
             this.label_date.Size = new System.Drawing.Size(109, 20);
             this.label_date.TabIndex = 20;
@@ -336,45 +376,11 @@
             "近一月",
             "近一年",
             "全部"});
-            this.comboBox_date.Location = new System.Drawing.Point(160, 29);
+            this.comboBox_date.Location = new System.Drawing.Point(166, 66);
             this.comboBox_date.Name = "comboBox_date";
             this.comboBox_date.Size = new System.Drawing.Size(204, 28);
             this.comboBox_date.TabIndex = 4;
             this.comboBox_date.SelectedIndexChanged += new System.EventHandler(this.comboBox_date_SelectedIndexChanged);
-            // 
-            // button_read
-            // 
-            this.button_read.FlatAppearance.BorderSize = 0;
-            this.button_read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_read.Image = global::SimpleMail.Properties.Resources.read;
-            this.button_read.Location = new System.Drawing.Point(0, 481);
-            this.button_read.Name = "button_read";
-            this.button_read.Size = new System.Drawing.Size(180, 80);
-            this.button_read.TabIndex = 14;
-            this.button_read.UseVisualStyleBackColor = true;
-            this.button_read.Click += new System.EventHandler(this.button_read_Click);
-            // 
-            // button_write
-            // 
-            this.button_write.FlatAppearance.BorderSize = 0;
-            this.button_write.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write.Image = global::SimpleMail.Properties.Resources.write;
-            this.button_write.Location = new System.Drawing.Point(0, 203);
-            this.button_write.Name = "button_write";
-            this.button_write.Size = new System.Drawing.Size(180, 80);
-            this.button_write.TabIndex = 13;
-            this.button_write.UseVisualStyleBackColor = true;
-            this.button_write.Click += new System.EventHandler(this.button_write_Click);
-            // 
-            // pictureBox_mail
-            // 
-            this.pictureBox_mail.Image = global::SimpleMail.Properties.Resources.simplemail;
-            this.pictureBox_mail.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox_mail.Name = "pictureBox_mail";
-            this.pictureBox_mail.Size = new System.Drawing.Size(224, 39);
-            this.pictureBox_mail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox_mail.TabIndex = 7;
-            this.pictureBox_mail.TabStop = false;
             // 
             // panel_hello
             // 
@@ -416,7 +422,7 @@
             this.panel1.Controls.Add(this.button_read);
             this.panel1.Location = new System.Drawing.Point(0, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 760);
+            this.panel1.Size = new System.Drawing.Size(180, 740);
             this.panel1.TabIndex = 30;
             // 
             // panel_write
@@ -436,103 +442,6 @@
             this.panel_write.TabIndex = 30;
             this.panel_write.Visible = false;
             // 
-            // label_write_to
-            // 
-            this.label_write_to.AutoSize = true;
-            this.label_write_to.Location = new System.Drawing.Point(60, 40);
-            this.label_write_to.Name = "label_write_to";
-            this.label_write_to.Size = new System.Drawing.Size(106, 24);
-            this.label_write_to.TabIndex = 18;
-            this.label_write_to.Text = "收件人：";
-            // 
-            // label_write_subject
-            // 
-            this.label_write_subject.AutoSize = true;
-            this.label_write_subject.Location = new System.Drawing.Point(60, 111);
-            this.label_write_subject.Name = "label_write_subject";
-            this.label_write_subject.Size = new System.Drawing.Size(106, 24);
-            this.label_write_subject.TabIndex = 19;
-            this.label_write_subject.Text = "主  题：";
-            // 
-            // label_write_content
-            // 
-            this.label_write_content.AutoSize = true;
-            this.label_write_content.Location = new System.Drawing.Point(60, 182);
-            this.label_write_content.Name = "label_write_content";
-            this.label_write_content.Size = new System.Drawing.Size(106, 24);
-            this.label_write_content.TabIndex = 20;
-            this.label_write_content.Text = "内  容：";
-            // 
-            // textBox_write_to
-            // 
-            this.textBox_write_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.textBox_write_to.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_to.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_write_to.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_write_to.Location = new System.Drawing.Point(187, 37);
-            this.textBox_write_to.Name = "textBox_write_to";
-            this.textBox_write_to.Size = new System.Drawing.Size(313, 27);
-            this.textBox_write_to.TabIndex = 22;
-            // 
-            // textBox_write_subject
-            // 
-            this.textBox_write_subject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.textBox_write_subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_subject.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_write_subject.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_write_subject.Location = new System.Drawing.Point(187, 112);
-            this.textBox_write_subject.Name = "textBox_write_subject";
-            this.textBox_write_subject.Size = new System.Drawing.Size(313, 27);
-            this.textBox_write_subject.TabIndex = 23;
-            // 
-            // textBox_write_content
-            // 
-            this.textBox_write_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.textBox_write_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_content.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_write_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_write_content.Location = new System.Drawing.Point(187, 186);
-            this.textBox_write_content.Multiline = true;
-            this.textBox_write_content.Name = "textBox_write_content";
-            this.textBox_write_content.Size = new System.Drawing.Size(932, 342);
-            this.textBox_write_content.TabIndex = 24;
-            // 
-            // button_write_enclosure
-            // 
-            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
-            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_enclosure.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_enclosure.Location = new System.Drawing.Point(831, 536);
-            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.Name = "button_write_enclosure";
-            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.TabIndex = 18;
-            this.button_write_enclosure.Text = "添加附件";
-            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
-            this.button_write_enclosure.UseVisualStyleBackColor = true;
-            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
-            // 
-            // button_write_send
-            // 
-            this.button_write_send.FlatAppearance.BorderSize = 0;
-            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_send.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_send.Location = new System.Drawing.Point(999, 536);
-            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.Name = "button_write_send";
-            this.button_write_send.Size = new System.Drawing.Size(120, 60);
-            this.button_write_send.TabIndex = 18;
-            this.button_write_send.Text = "发送";
-            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
-            this.button_write_send.UseVisualStyleBackColor = true;
-            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
-            // 
             // listView_write_enclosures
             // 
             this.listView_write_enclosures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
@@ -547,6 +456,123 @@
             this.listView_write_enclosures.TabIndex = 28;
             this.listView_write_enclosures.UseCompatibleStateImageBehavior = false;
             this.listView_write_enclosures.View = System.Windows.Forms.View.SmallIcon;
+            // 
+            // textBox_write_content
+            // 
+            this.textBox_write_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.textBox_write_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_write_content.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox_write_content.Location = new System.Drawing.Point(187, 186);
+            this.textBox_write_content.Multiline = true;
+            this.textBox_write_content.Name = "textBox_write_content";
+            this.textBox_write_content.Size = new System.Drawing.Size(932, 342);
+            this.textBox_write_content.TabIndex = 24;
+            // 
+            // textBox_write_subject
+            // 
+            this.textBox_write_subject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.textBox_write_subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_write_subject.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_subject.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox_write_subject.Location = new System.Drawing.Point(187, 112);
+            this.textBox_write_subject.Name = "textBox_write_subject";
+            this.textBox_write_subject.Size = new System.Drawing.Size(313, 27);
+            this.textBox_write_subject.TabIndex = 23;
+            // 
+            // textBox_write_to
+            // 
+            this.textBox_write_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.textBox_write_to.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_write_to.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_to.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox_write_to.Location = new System.Drawing.Point(187, 37);
+            this.textBox_write_to.Name = "textBox_write_to";
+            this.textBox_write_to.Size = new System.Drawing.Size(313, 27);
+            this.textBox_write_to.TabIndex = 22;
+            // 
+            // label_write_content
+            // 
+            this.label_write_content.AutoSize = true;
+            this.label_write_content.Location = new System.Drawing.Point(60, 182);
+            this.label_write_content.Name = "label_write_content";
+            this.label_write_content.Size = new System.Drawing.Size(106, 24);
+            this.label_write_content.TabIndex = 20;
+            this.label_write_content.Text = "内  容：";
+            // 
+            // label_write_subject
+            // 
+            this.label_write_subject.AutoSize = true;
+            this.label_write_subject.Location = new System.Drawing.Point(60, 111);
+            this.label_write_subject.Name = "label_write_subject";
+            this.label_write_subject.Size = new System.Drawing.Size(106, 24);
+            this.label_write_subject.TabIndex = 19;
+            this.label_write_subject.Text = "主  题：";
+            // 
+            // label_write_to
+            // 
+            this.label_write_to.AutoSize = true;
+            this.label_write_to.Location = new System.Drawing.Point(60, 40);
+            this.label_write_to.Name = "label_write_to";
+            this.label_write_to.Size = new System.Drawing.Size(106, 24);
+            this.label_write_to.TabIndex = 18;
+            this.label_write_to.Text = "收件人：";
+            // 
+            // label_subject
+            // 
+            this.label_subject.AutoSize = true;
+            this.label_subject.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label_subject.Location = new System.Drawing.Point(50, 86);
+            this.label_subject.Name = "label_subject";
+            this.label_subject.Size = new System.Drawing.Size(109, 20);
+            this.label_subject.TabIndex = 28;
+            this.label_subject.Text = "主    题：";
+            // 
+            // button_write
+            // 
+            this.button_write.FlatAppearance.BorderSize = 0;
+            this.button_write.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write.Image = global::SimpleMail.Properties.Resources.write;
+            this.button_write.Location = new System.Drawing.Point(0, 203);
+            this.button_write.Name = "button_write";
+            this.button_write.Size = new System.Drawing.Size(180, 80);
+            this.button_write.TabIndex = 13;
+            this.button_write.UseVisualStyleBackColor = true;
+            this.button_write.Click += new System.EventHandler(this.button_write_Click);
+            // 
+            // button_read
+            // 
+            this.button_read.FlatAppearance.BorderSize = 0;
+            this.button_read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_read.Image = global::SimpleMail.Properties.Resources.read;
+            this.button_read.Location = new System.Drawing.Point(0, 481);
+            this.button_read.Name = "button_read";
+            this.button_read.Size = new System.Drawing.Size(180, 80);
+            this.button_read.TabIndex = 14;
+            this.button_read.UseVisualStyleBackColor = true;
+            this.button_read.Click += new System.EventHandler(this.button_read_Click);
+            // 
+            // pictureBox_mail
+            // 
+            this.pictureBox_mail.Image = global::SimpleMail.Properties.Resources.simplemail;
+            this.pictureBox_mail.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox_mail.Name = "pictureBox_mail";
+            this.pictureBox_mail.Size = new System.Drawing.Size(224, 39);
+            this.pictureBox_mail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox_mail.TabIndex = 7;
+            this.pictureBox_mail.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::SimpleMail.Properties.Resources.get;
+            this.button1.Location = new System.Drawing.Point(6, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 46);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -575,7 +601,6 @@
             this.panel_receive.PerformLayout();
             this.groupBox_infos.ResumeLayout(false);
             this.groupBox_infos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
             this.panel_hello.ResumeLayout(false);
             this.panel_hello.PerformLayout();
             this.panel_title.ResumeLayout(false);
@@ -583,6 +608,7 @@
             this.panel1.ResumeLayout(false);
             this.panel_write.ResumeLayout(false);
             this.panel_write.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -628,5 +654,7 @@
         private System.Windows.Forms.Button button_write_enclosure;
         private System.Windows.Forms.TextBox textBox_write_content;
         private System.Windows.Forms.ListView listView_write_enclosures;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label_subject;
     }
 }
