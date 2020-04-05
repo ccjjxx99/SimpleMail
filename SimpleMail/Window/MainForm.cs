@@ -521,7 +521,12 @@ namespace SimpleMail.Window
         {
             if (listView_write_enclosures.Items.Count == 0)
             {
-                MessageBox.Show("附件数量为空");
+                MessageForm messageForm = new MessageForm("提醒", "附件数量为空！", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
             }
             else if (listView_write_enclosures.SelectedItems.Count > 0)
             {
@@ -535,7 +540,12 @@ namespace SimpleMail.Window
             }
             else
             {
-                MessageBox.Show("请先选择一个附件");
+                MessageForm messageForm = new MessageForm("提醒", "请选择要删除的控件！", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
             }
         }
     }
