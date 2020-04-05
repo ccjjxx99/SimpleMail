@@ -73,7 +73,7 @@ namespace SimpleMail.Util
             //获取文件扩展名
             string[] temp = filename.Split('.');
             string extension = temp[temp.Length - 1];
-            if (extension == "rar" || extension == ".7z" || extension == ".zip")
+            if (extension == "rar" || extension == "7z" || extension == "zip")
             {
                 return 1;
             }

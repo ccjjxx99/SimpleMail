@@ -13,6 +13,12 @@ using SimpleMail.Util;
 
 namespace SimpleMail.Communication
 {
+    public enum SmtpSTATE
+    {
+        CONNECTED,    //连接登录成功
+        UNCONNECTED  //未连接
+    }
+
     class SMTPClient
     {
         public User User;
@@ -22,10 +28,12 @@ namespace SimpleMail.Communication
         private string cmdData;
         private byte[] szData;
         private const string CRLF = "\r\n";
+        public SmtpSTATE State { get; set; } //当前连接状态
 
         public SMTPClient(User user)
         {
             this.User = user;
+            State = SmtpSTATE.UNCONNECTED;
         }
 
         public string getSatus()
@@ -36,6 +44,10 @@ namespace SimpleMail.Communication
         // 登录
         public bool Login(User user)
         {
+            if(State == SmtpSTATE.CONNECTED)
+            {
+                return true;
+            }
             Server = new TcpClient(User.SMTPServer,user.SMTPPort);
             this.User = user;
             try
@@ -74,8 +86,13 @@ namespace SimpleMail.Communication
         }
 
         // 发送邮件
-        public bool SendMail(string to, string subject, string content, ListBox lsb_attach)
+        public bool SendMail(string to, string subject, string content, ListView lsb_attach)
         {
+            if(State == SmtpSTATE.UNCONNECTED)
+            {
+                if (!Login(User))
+                    return false;
+            }
             try
             {
                 //Send Email
@@ -103,9 +120,9 @@ namespace SimpleMail.Communication
                     date = System.Text.RegularExpressions.Regex.Replace(date, "GMT", "+0800");
                     //附件的base64编码
                     List<string> attachs = new List<string>();
-                    foreach (object iterm in lsb_attach.Items)
+                    foreach (ListViewItem item in lsb_attach.Items)
                     {
-                        attachs.Add(FileUtil.FileToBase64Str(iterm.ToString()));
+                        attachs.Add(FileUtil.FileToBase64Str(item.Text));
                     }
                     //分隔符，边界字符串
                     //String boundary = "_NextPart_" + GetRnd(10, true, true, true, false, "");
@@ -123,7 +140,7 @@ namespace SimpleMail.Communication
                             .Append(content + CRLF + CRLF);
                     for (int i = 0; i < attachs.Count; i++)
                     {
-                        string filePath = lsb_attach.Items[i].ToString();
+                        string filePath = lsb_attach.Items[i].Text;
                         string fileName = Path.GetFileName(filePath);
                         string extension = Path.GetExtension(filePath);
                         stringBuilder.Append("--__=_Part_Boundary_001_011991.029871" + CRLF)
@@ -163,6 +180,8 @@ namespace SimpleMail.Communication
         // 断开连接
         public void DisConnect()
         {
+            if (State == SmtpSTATE.UNCONNECTED)
+                return;
             if (cmdData != "quit")
             {
                 cmdData = "quit";

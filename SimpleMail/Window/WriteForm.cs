@@ -43,21 +43,21 @@ namespace SimpleMail.Window
                 }
                 return;
             }
-            if (DataService.smtp.SendMail(tb_to.Text, tb_subject.Text, tb_content.Text, lsb_attach))
-            {
-                MessageForm messageForm = new MessageForm("提醒", "发送成功，是否还要发送", "是", "否");
-                messageForm.ShowDialog();
-                if (messageForm.DialogResult == DialogResult.Cancel)
-                {
-                    messageForm.Dispose();
-                    DataService.smtp.DisConnect();
-                    this.Dispose();
-                }
-                else
-                {
-                    messageForm.Dispose();
-                }
-            }
+            //if (DataService.smtp.SendMail(tb_to.Text, tb_subject.Text, tb_content.Text, lsb_attach))
+            //{
+            //    MessageForm messageForm = new MessageForm("提醒", "发送成功，是否还要发送", "是", "否");
+            //    messageForm.ShowDialog();
+            //    if (messageForm.DialogResult == DialogResult.Cancel)
+            //    {
+            //        messageForm.Dispose();
+            //        DataService.smtp.DisConnect();
+            //        this.Dispose();
+            //    }
+            //    else
+            //    {
+            //        messageForm.Dispose();
+            //    }
+            //}
         }
         
         // 添加附件

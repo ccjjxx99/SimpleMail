@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SimpleMail.Window
 {
@@ -71,6 +72,7 @@ namespace SimpleMail.Window
             label_hello.Text = helloString + "好！ " + DataService.pop3.User.Username;
             panel_hello.Visible = true;
             panel_receive.Visible = false;
+            panel_write.Visible = false;
         }
 
         //注销按钮点击
@@ -111,13 +113,15 @@ namespace SimpleMail.Window
         private void button_close_Click(object sender, EventArgs e)
         {
             SerializeUtil.SerializeUser(DataService.pop3.User);
+            DataService.pop3.Close();
+            DataService.smtp.DisConnect();
             this.Dispose();
         }
 
         //点击收信
         private void button_read_Click(object sender, EventArgs e)
         {
-            bool isConnected = false;
+            bool isGetAllMail = false;      //是否成功获取信件
             LoadingHelper.ShowLoading("正在获取邮件，请稍等", this, (obj) =>
             {
                 // 如果目前的状态是未连接
@@ -130,11 +134,11 @@ namespace SimpleMail.Window
                 int ret = DataService.pop3.GetAllMail();
                 if (ret == 1)
                 {
-                    isConnected = true;
+                    isGetAllMail = true;
                 }
                 else if (ret == 0)
                 {
-                    isConnected = true;
+                    isGetAllMail = true;
                     // 提示一下没收完
                     MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
                     messageForm.ShowDialog();
@@ -144,13 +148,14 @@ namespace SimpleMail.Window
                     }
                 }
             });
-            if (isConnected)
+            if (isGetAllMail)
             {
                 comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
                 receivedMails = DataService.pop3.User.ReceivedMails;
                 ReverseUpdate();
                 ShowMailText(GetSelectedMail());
                 panel_hello.Visible = false;
+                panel_write.Visible = false;
                 panel_receive.Show();
             }
             else
@@ -396,7 +401,110 @@ namespace SimpleMail.Window
 
         private void button_write_Click(object sender, EventArgs e)
         {
-            new WriteForm() { StartPosition = FormStartPosition.CenterParent }.ShowDialog();
+            //new WriteForm() { StartPosition = FormStartPosition.CenterParent }.ShowDialog();
+            panel_hello.Visible = false;
+            panel_receive.Visible = false;
+            panel_write.Visible = true;
+        }
+
+        //发送邮件
+        private void button_write_send_Click(object sender, EventArgs e)
+        {
+            if(DataService.smtp == null)
+            {
+                if(DataService.smtp.State == SmtpSTATE.CONNECTED)   //信息失效
+                {
+                    //程序显示登录界面
+                    MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
+                    messageForm.ShowDialog();
+                    //显示主界面
+                    if (messageForm.DialogResult == DialogResult.OK)
+                    {
+                        messageForm.Dispose();
+                        Logout();
+                    }
+                    else if (messageForm.DialogResult == DialogResult.Cancel)
+                    {
+                        messageForm.Dispose();
+                    }
+                    return;
+                }
+            }
+            string to = textBox_write_to.Text;
+            string subject = textBox_write_subject.Text;
+            string content = textBox_write_content.Text;
+            if (string.IsNullOrEmpty(to) || string.IsNullOrEmpty(subject) || string.IsNullOrEmpty(content))
+            {
+                MessageForm messageForm = new MessageForm("提醒", "输入不能为空", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
+                return;
+            }
+            MessageForm messageForm2;
+            if (DataService.smtp.SendMail(to, subject, content, listView_write_enclosures))
+            {
+                messageForm2 = new MessageForm("提醒", "发送成功", "确定");
+            }
+            else
+            {
+                messageForm2 = new MessageForm("提醒", "发送失败", "确定");
+            }
+            messageForm2.ShowDialog();
+            if (messageForm2.DialogResult == DialogResult.Cancel)
+            {
+                messageForm2.Dispose();
+            }
+            ClearWritePanel();
+            return;
+        }
+
+        private void ClearWritePanel()
+        {
+            textBox_write_to.Text = "";
+            textBox_write_subject.Text = "";
+            textBox_write_content.Text = "";
+            listView_write_enclosures.Clear();
+        }
+
+        //添加附件
+        private void button_write_enclosure_Click(object sender, EventArgs e)
+        {
+            if (listView_write_enclosures.Items.Count == 10)
+            {
+                MessageForm messageForm = new MessageForm("提醒", "附件个数不能超过10个！", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
+                return;
+            }
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = true;
+            fileDialog.CheckFileExists = true;
+            fileDialog.ValidateNames = true;
+            fileDialog.Title = "请选择文件";
+            fileDialog.Filter = "所有文件(*.*)|*.*|文本(*.txt)|*.txt|图片(*.jpg)|*.jpg|压缩包(*.zip)|*.zip"; //设置要选择的文件的类型
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string filePath in fileDialog.FileNames)
+                {
+                    if (new FileInfo(filePath).Length / 2014 / 1024 > 1024)
+                        MessageBox.Show("文件大小不能超过1GB");
+                    else
+                    {
+                        //listView_write_enclosures.Items.Add(filePath);
+                        ListViewItem item = new ListViewItem();
+                        item.ImageIndex = EnclosureUtil.GetEnclosuerIconIndex(filePath);
+                        item.Text = filePath;
+                        listView_write_enclosures.Items.Add(item);
+                    }
+                        
+                }
+            }
         }
     }
 }

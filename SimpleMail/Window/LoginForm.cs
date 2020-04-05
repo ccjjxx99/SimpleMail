@@ -1,4 +1,5 @@
 ﻿using SimpleMail.Controller;
+using SimpleMail.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +73,7 @@ namespace SimpleMail.Window
             }
 
             //登录
-            if (!LoginController.LoginPOP3(username, password))
+            if (!LoginController.LoginPOP3(username, password) || !LoginController.LoginSMTP(DataService.pop3.User))
             {
                 MessageBox.Show("地址或用户名、密码错误", "登录提示");
             }

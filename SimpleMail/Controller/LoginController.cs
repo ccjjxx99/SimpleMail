@@ -78,7 +78,9 @@ namespace SimpleMail.Controller
                     if (user.isLogin)
                     {
                         POP3Client pop3Client = new POP3Client(user);
+                        SMTPClient smtpClient = new SMTPClient(user);
                         DataService.pop3 = pop3Client;
+                        DataService.smtp = smtpClient;
                         return true;
                     }
                 }
