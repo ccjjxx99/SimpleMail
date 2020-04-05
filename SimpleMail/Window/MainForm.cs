@@ -36,7 +36,7 @@ namespace SimpleMail.Window
             //设置收件panel
             receivedMails = DataService.pop3.User.ReceivedMails;
             listBox_receivedMails.DataSource = receivedMails;
-            listBox_receivedMails.DisplayMember = "From";
+            listBox_receivedMails.DisplayMember = "Subject";
             listBox_receivedMails.ValueMember = "Id";
             comboBox_date.SelectedIndex = 4;
 
@@ -208,7 +208,7 @@ namespace SimpleMail.Window
             });
             listBox_receivedMails.DataSource = null;
             listBox_receivedMails.DataSource = receivedMails;
-            listBox_receivedMails.DisplayMember = "From";
+            listBox_receivedMails.DisplayMember = "Subject";
             listBox_receivedMails.ValueMember = "Id";
         }
 
@@ -247,9 +247,9 @@ namespace SimpleMail.Window
                 return;
             label_sender.Text = "发件人：" + receivedMail.FromName + " <" + receivedMail.FromAddress + ">";
             label_receiver.Text = "收件人：" + receivedMail.ToName + " <" + receivedMail.ToAdderss + ">";
-            label_subject.Text = receivedMail.Subject;
+            label_subject.Text = "主  题：" + receivedMail.Subject;
             label_date_detail.Text = "时间：" + receivedMail.SendDateTime.ToString();
-            label_size.Text = "大小：" + receivedMail.Size.ToString() + " KB";
+            label_size.Text = "大  小：" + receivedMail.Size.ToString() + " KB";
             richTextBox_content.Text = receivedMail.Body;
             int len = receivedMail.Enclosures.Count;
             listView_enclosure.Items.Clear();
@@ -257,16 +257,16 @@ namespace SimpleMail.Window
             richTextBox_content.Visible = true;
             if(len == 0)
             {
-                groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 164);
-                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362 - 140);
-                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 417 + 140);
-                webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330 - 140);
-                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 355 + 140);
+                groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 156);
+                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 330 - 160);
+                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 355 + 160);
+                webBrowser_html.Location = new Point(webBrowser_html.Location.X, 355 - 160);
+                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 355 + 160);
             }
             else
             {
                 groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 304);
-                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 362);
+                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 330);
                 richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 355);
                 webBrowser_html.Location = new Point(webBrowser_html.Location.X, 330);
                 webBrowser_html.Size = new Size(webBrowser_html.Size.Width, 355);

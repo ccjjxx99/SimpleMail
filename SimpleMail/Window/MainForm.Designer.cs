@@ -283,7 +283,7 @@
             // 
             this.label_enclosure.AutoSize = true;
             this.label_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label_enclosure.Location = new System.Drawing.Point(50, 166);
+            this.label_enclosure.Location = new System.Drawing.Point(50, 159);
             this.label_enclosure.Name = "label_enclosure";
             this.label_enclosure.Size = new System.Drawing.Size(109, 20);
             this.label_enclosure.TabIndex = 26;
@@ -567,7 +567,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::SimpleMail.Properties.Resources.get;
-            this.button1.Location = new System.Drawing.Point(6, 8);
+            this.button1.Location = new System.Drawing.Point(200, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 46);
             this.button1.TabIndex = 15;
