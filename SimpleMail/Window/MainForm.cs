@@ -516,5 +516,27 @@ namespace SimpleMail.Window
                 }
             }
         }
+
+        private void button_del_attach_Click(object sender, EventArgs e)
+        {
+            if (listView_write_enclosures.Items.Count == 0)
+            {
+                MessageBox.Show("附件数量为空");
+            }
+            else if (listView_write_enclosures.SelectedItems.Count > 0)
+            {
+                foreach (ListViewItem item in listView_write_enclosures.Items)
+                {
+                    if (item.Selected)
+                    {
+                        item.Remove();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先选择一个附件");
+            }
+        }
     }
 }
