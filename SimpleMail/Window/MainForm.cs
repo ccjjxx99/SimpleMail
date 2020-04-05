@@ -121,59 +121,11 @@ namespace SimpleMail.Window
         //点击收信
         private void button_read_Click(object sender, EventArgs e)
         {
-            bool isGetAllMail = false;      //是否成功获取信件
-            LoadingHelper.ShowLoading("正在获取邮件，请稍等", this, (obj) =>
-            {
-                // 如果目前的状态是未连接
-                if (DataService.pop3.State != Pop3STATE.CONNECTED)
-                {
-                    // 就需要登录
-                    DataService.pop3.Login(DataService.pop3.User);
-                }
-                //连接后获取邮件
-                int ret = DataService.pop3.GetAllMail();
-                if (ret == 1)
-                {
-                    isGetAllMail = true;
-                }
-                else if (ret == 0)
-                {
-                    isGetAllMail = true;
-                    // 提示一下没收完
-                    MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
-                    messageForm.ShowDialog();
-                    if (messageForm.DialogResult == DialogResult.Cancel)
-                    {
-                        messageForm.Dispose();
-                    }
-                }
-            });
-            if (isGetAllMail)
-            {
-                comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
-                receivedMails = DataService.pop3.User.ReceivedMails;
-                ReverseUpdate();
-                ShowMailText(GetSelectedMail());
-                panel_hello.Visible = false;
-                panel_write.Visible = false;
-                panel_receive.Show();
-            }
-            else
-            {
-                //程序显示登录界面
-                MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
-                messageForm.ShowDialog();
-                //显示主界面
-                if (messageForm.DialogResult == DialogResult.OK)
-                {
-                    messageForm.Dispose();
-                    Logout();
-                }
-                else if (messageForm.DialogResult == DialogResult.Cancel)
-                {
-                    messageForm.Dispose();
-                }
-            }
+            ReverseUpdate();
+            ShowMailText(GetSelectedMail());
+            panel_hello.Visible = false;
+            panel_write.Visible = false;
+            panel_receive.Show();
         }
 
         //时间选择框选中项改变事件
@@ -295,6 +247,7 @@ namespace SimpleMail.Window
                 return;
             label_sender.Text = "发件人：" + receivedMail.FromName + " <" + receivedMail.FromAddress + ">";
             label_receiver.Text = "收件人：" + receivedMail.ToName + " <" + receivedMail.ToAdderss + ">";
+            label_subject.Text = receivedMail.Subject;
             label_date_detail.Text = "时间：" + receivedMail.SendDateTime.ToString();
             label_size.Text = "大小：" + receivedMail.Size.ToString() + " KB";
             richTextBox_content.Text = receivedMail.Body;
@@ -507,25 +460,60 @@ namespace SimpleMail.Window
             }
         }
 
-        private void button_del_attach_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (listView_write_enclosures.Items.Count == 0)
+            bool isGetAllMail = false;      //是否成功获取信件
+            LoadingHelper.ShowLoading("正在获取邮件，请稍等", this, (obj) =>
             {
-                MessageBox.Show("附件数量为空");
-            }
-            else if (listView_write_enclosures.SelectedItems.Count > 0)
-            {
-                foreach (ListViewItem var in listView_write_enclosures.Items)
+                // 如果目前的状态是未连接
+                if (DataService.pop3.State != Pop3STATE.CONNECTED)
                 {
-                    if (var.Selected)
+                    // 就需要登录
+                    DataService.pop3.Login(DataService.pop3.User);
+                }
+                //连接后获取邮件
+                int ret = DataService.pop3.GetAllMail();
+                if (ret == 1)
+                {
+                    isGetAllMail = true;
+                }
+                else if (ret == 0)
+                {
+                    isGetAllMail = true;
+                    // 提示一下没收完
+                    MessageForm messageForm = new MessageForm("提醒", "获取邮件部分失败", "确定");
+                    messageForm.ShowDialog();
+                    if (messageForm.DialogResult == DialogResult.Cancel)
                     {
-                        var.Remove();
+                        messageForm.Dispose();
                     }
                 }
+            });
+            if (isGetAllMail)
+            {
+                comboBox_date.SelectedIndex = comboBox_date.Items.Count - 1;
+                receivedMails = DataService.pop3.User.ReceivedMails;
+                ReverseUpdate();
+                ShowMailText(GetSelectedMail());
+                panel_hello.Visible = false;
+                panel_write.Visible = false;
+                panel_receive.Show();
             }
             else
             {
-                MessageBox.Show("请先选择一个附件");
+                //程序显示登录界面
+                MessageForm messageForm = new MessageForm("提醒", "登录信息失效！", "注销", "取消");
+                messageForm.ShowDialog();
+                //显示主界面
+                if (messageForm.DialogResult == DialogResult.OK)
+                {
+                    messageForm.Dispose();
+                    Logout();
+                }
+                else if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
             }
         }
     }
