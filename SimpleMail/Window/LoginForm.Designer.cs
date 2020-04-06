@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.button_min = new System.Windows.Forms.Button();
             this.button_close = new System.Windows.Forms.Button();
             this.label_username = new System.Windows.Forms.Label();
@@ -154,6 +155,7 @@
             this.Controls.Add(this.button_min);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(500, 520);
             this.MinimumSize = new System.Drawing.Size(500, 520);
             this.Name = "LoginForm";

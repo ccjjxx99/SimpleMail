@@ -34,8 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>simplemail.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -189,8 +188,7 @@
     <None Include="Resources\simplemail.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ico.ico" />
-    <Content Include="mail.ico" />
+    <Content Include="simplemail.ico" />
     <None Include="Resources\get.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
