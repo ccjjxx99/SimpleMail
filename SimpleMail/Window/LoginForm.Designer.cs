@@ -79,7 +79,7 @@
             this.label_username.AutoSize = true;
             this.label_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_username.Location = new System.Drawing.Point(12, 200);
+            this.label_username.Location = new System.Drawing.Point(-2, 200);
             this.label_username.Name = "label_username";
             this.label_username.Size = new System.Drawing.Size(119, 20);
             this.label_username.TabIndex = 7;
@@ -90,11 +90,11 @@
             this.label_password.AutoSize = true;
             this.label_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_password.Location = new System.Drawing.Point(12, 300);
+            this.label_password.Location = new System.Drawing.Point(-2, 300);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(119, 20);
             this.label_password.TabIndex = 8;
-            this.label_password.Text = "      密码:";
+            this.label_password.Text = "    密  码:";
             // 
             // textBox_password
             // 
@@ -102,7 +102,7 @@
             this.textBox_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_password.Location = new System.Drawing.Point(152, 300);
+            this.textBox_password.Location = new System.Drawing.Point(138, 300);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(313, 23);
@@ -113,7 +113,7 @@
             this.button_login.FlatAppearance.BorderSize = 0;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_login.Image = global::SimpleMail.Properties.Resources.dneglu;
-            this.button_login.Location = new System.Drawing.Point(170, 400);
+            this.button_login.Location = new System.Drawing.Point(168, 417);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(160, 80);
             this.button_login.TabIndex = 4;
@@ -123,7 +123,7 @@
             // pictureBox_login
             // 
             this.pictureBox_login.Image = global::SimpleMail.Properties.Resources.login;
-            this.pictureBox_login.Location = new System.Drawing.Point(202, 90);
+            this.pictureBox_login.Location = new System.Drawing.Point(190, 89);
             this.pictureBox_login.Name = "pictureBox_login";
             this.pictureBox_login.Size = new System.Drawing.Size(101, 41);
             this.pictureBox_login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -137,7 +137,7 @@
             this.comboBox_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_username.FormattingEnabled = true;
-            this.comboBox_username.Location = new System.Drawing.Point(152, 197);
+            this.comboBox_username.Location = new System.Drawing.Point(138, 197);
             this.comboBox_username.Name = "comboBox_username";
             this.comboBox_username.Size = new System.Drawing.Size(313, 28);
             this.comboBox_username.TabIndex = 0;
@@ -159,7 +159,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(288, 376);
+            this.checkBox2.Location = new System.Drawing.Point(302, 376);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(89, 19);
             this.checkBox2.TabIndex = 3;
