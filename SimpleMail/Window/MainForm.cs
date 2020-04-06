@@ -548,5 +548,23 @@ namespace SimpleMail.Window
                 }
             }
         }
+
+
+        private void listBox_receivedMails_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            e.ItemHeight = e.ItemHeight + 12;
+        }
+
+        private void listBox_receivedMails_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.Graphics.FillRectangle(new SolidBrush(e.BackColor), e.Bounds);
+            if (e.Index >= 0)
+            {
+                StringFormat sStringFormat = new StringFormat();
+                sStringFormat.LineAlignment = StringAlignment.Center;
+                e.Graphics.DrawString(receivedMails[e.Index].Subject, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+            }
+            e.DrawFocusRectangle();
+        }
     }
 }
