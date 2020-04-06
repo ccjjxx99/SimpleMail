@@ -30,15 +30,7 @@ namespace SimpleMail.Util
         public static bool Save(byte[] fileBytes, string filename, int id)
         {
             //设置路径
-            string dir;
-            if (FoldDir == "./download")
-            {
-                dir = AppDomain.CurrentDomain.BaseDirectory + "\\download\\" + id;
-            }
-            else
-            {
-                dir = FoldDir;
-            }
+            string dir = GetDirOrPath();
             if (!Directory.Exists(dir))
             {
                 Directory.CreateDirectory(dir);
@@ -61,6 +53,20 @@ namespace SimpleMail.Util
             return result;
         }
 
+        public static string GetDirOrPath()
+        {
+            //设置路径
+            string dir;
+            if (FoldDir == "./download")
+            {
+                dir = AppDomain.CurrentDomain.BaseDirectory + "\\download";
+            }
+            else
+            {
+                dir = FoldDir;
+            }
+            return dir;
+        }
         /// <summary>
         /// 获取文件扩展名,以便确定显示图标的序号
         /// </summary>

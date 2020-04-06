@@ -250,6 +250,7 @@ namespace SimpleMail.Window
             label_subject.Text = "主  题：" + receivedMail.Subject;
             label_date_detail.Text = "时间：" + receivedMail.SendDateTime.ToString();
             label_size.Text = "大  小：" + receivedMail.Size.ToString() + " KB";
+            label_enclosure.Text = "附  件：（已下载于" + EnclosureUtil.GetDirOrPath() + "）";
             richTextBox_content.Text = receivedMail.Body;
             int len = receivedMail.Enclosures.Count;
             listView_enclosure.Items.Clear();
