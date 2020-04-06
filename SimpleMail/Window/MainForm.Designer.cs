@@ -38,6 +38,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除邮件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
+            this.button_write_enclosure = new System.Windows.Forms.Button();
+            this.button_write_send = new System.Windows.Forms.Button();
+            this.button_del_attach = new System.Windows.Forms.Button();
             this.panel_receive = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.webBrowser_html = new System.Windows.Forms.WebBrowser();
@@ -67,10 +70,7 @@
             this.textBox_write_to = new System.Windows.Forms.TextBox();
             this.textBox_write_subject = new System.Windows.Forms.TextBox();
             this.textBox_write_content = new System.Windows.Forms.TextBox();
-            this.button_write_enclosure = new System.Windows.Forms.Button();
-            this.button_write_send = new System.Windows.Forms.Button();
             this.listView_write_enclosures = new System.Windows.Forms.ListView();
-            this.button_del_attach = new System.Windows.Forms.Button();
             this.panel_write = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
@@ -172,6 +172,60 @@
             this.删除邮件ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.删除邮件ToolStripMenuItem.Text = "删除邮件";
             this.删除邮件ToolStripMenuItem.Click += new System.EventHandler(this.删除邮件ToolStripMenuItem_Click);
+            // 
+            // button_write_enclosure
+            // 
+            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
+            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_enclosure.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_enclosure.Location = new System.Drawing.Point(663, 536);
+            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.Name = "button_write_enclosure";
+            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.TabIndex = 18;
+            this.button_write_enclosure.Text = "添加附件";
+            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
+            this.button_write_enclosure.UseVisualStyleBackColor = true;
+            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
+            // 
+            // button_write_send
+            // 
+            this.button_write_send.FlatAppearance.BorderSize = 0;
+            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_send.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_send.Location = new System.Drawing.Point(999, 536);
+            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.Name = "button_write_send";
+            this.button_write_send.Size = new System.Drawing.Size(120, 60);
+            this.button_write_send.TabIndex = 18;
+            this.button_write_send.Text = "发送";
+            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
+            this.button_write_send.UseVisualStyleBackColor = true;
+            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
+            // 
+            // button_del_attach
+            // 
+            this.button_del_attach.FlatAppearance.BorderSize = 0;
+            this.button_del_attach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_del_attach.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_del_attach.ForeColor = System.Drawing.Color.LightGray;
+            this.button_del_attach.Location = new System.Drawing.Point(837, 536);
+            this.button_del_attach.Margin = new System.Windows.Forms.Padding(5);
+            this.button_del_attach.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_del_attach.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_del_attach.Name = "button_del_attach";
+            this.button_del_attach.Size = new System.Drawing.Size(120, 60);
+            this.button_del_attach.TabIndex = 29;
+            this.button_del_attach.Text = "删除附件";
+            this.toolTip_button.SetToolTip(this.button_del_attach, "最小化");
+            this.button_del_attach.UseVisualStyleBackColor = true;
+            this.button_del_attach.Click += new System.EventHandler(this.button_del_attach_Click);
             // 
             // panel_receive
             // 
@@ -333,7 +387,7 @@
             this.listBox_receivedMails.Font = new System.Drawing.Font("微软雅黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBox_receivedMails.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.listBox_receivedMails.FormattingEnabled = true;
-            this.listBox_receivedMails.ItemHeight = 60;
+            this.listBox_receivedMails.ItemHeight = 40;
             this.listBox_receivedMails.Location = new System.Drawing.Point(34, 120);
             this.listBox_receivedMails.Name = "listBox_receivedMails";
             this.listBox_receivedMails.Size = new System.Drawing.Size(336, 552);
@@ -511,42 +565,6 @@
             this.textBox_write_content.Size = new System.Drawing.Size(932, 342);
             this.textBox_write_content.TabIndex = 24;
             // 
-            // button_write_enclosure
-            // 
-            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
-            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_enclosure.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_enclosure.Location = new System.Drawing.Point(663, 536);
-            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.Name = "button_write_enclosure";
-            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.TabIndex = 18;
-            this.button_write_enclosure.Text = "添加附件";
-            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
-            this.button_write_enclosure.UseVisualStyleBackColor = true;
-            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
-            // 
-            // button_write_send
-            // 
-            this.button_write_send.FlatAppearance.BorderSize = 0;
-            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_send.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_send.Location = new System.Drawing.Point(999, 536);
-            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.Name = "button_write_send";
-            this.button_write_send.Size = new System.Drawing.Size(120, 60);
-            this.button_write_send.TabIndex = 18;
-            this.button_write_send.Text = "发送";
-            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
-            this.button_write_send.UseVisualStyleBackColor = true;
-            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
-            // 
             // listView_write_enclosures
             // 
             this.listView_write_enclosures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
@@ -561,24 +579,6 @@
             this.listView_write_enclosures.TabIndex = 28;
             this.listView_write_enclosures.UseCompatibleStateImageBehavior = false;
             this.listView_write_enclosures.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // button_del_attach
-            // 
-            this.button_del_attach.FlatAppearance.BorderSize = 0;
-            this.button_del_attach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_del_attach.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_del_attach.ForeColor = System.Drawing.Color.LightGray;
-            this.button_del_attach.Location = new System.Drawing.Point(837, 536);
-            this.button_del_attach.Margin = new System.Windows.Forms.Padding(5);
-            this.button_del_attach.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_del_attach.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_del_attach.Name = "button_del_attach";
-            this.button_del_attach.Size = new System.Drawing.Size(120, 60);
-            this.button_del_attach.TabIndex = 29;
-            this.button_del_attach.Text = "删除附件";
-            this.toolTip_button.SetToolTip(this.button_del_attach, "最小化");
-            this.button_del_attach.UseVisualStyleBackColor = true;
-            this.button_del_attach.Click += new System.EventHandler(this.button_del_attach_Click);
             // 
             // panel_write
             // 
@@ -618,7 +618,7 @@
             this.MinimumSize = new System.Drawing.Size(1400, 800);
             this.Name = "MainForm";
             this.Opacity = 0.9D;
-            this.Text = "MainForm";
+            this.Text = "Simple Mail";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.contextMenuStrip1.ResumeLayout(false);

@@ -88,7 +88,7 @@ namespace SimpleMail.Window
             DataService.pop3.User.isLogin = false;
             SerializeUtil.SerializeUser(DataService.pop3.User);
             //程序显示登录界面
-            LoginForm loginForm = new LoginForm();
+            LoginForm loginForm = new LoginForm() { StartPosition = FormStartPosition.CenterScreen };
             loginForm.ShowDialog();
             //显示主界面
             if (loginForm.DialogResult == DialogResult.OK)

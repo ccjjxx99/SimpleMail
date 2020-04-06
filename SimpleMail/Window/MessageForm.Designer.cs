@@ -53,7 +53,7 @@
             // label_title
             // 
             this.label_title.AutoSize = true;
-            this.label_title.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_title.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_title.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label_title.Location = new System.Drawing.Point(12, 17);
             this.label_title.Name = "label_title";
@@ -66,7 +66,7 @@
             this.button_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button_close.FlatAppearance.BorderSize = 0;
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_close.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
             this.button_close.Location = new System.Drawing.Point(320, -3);
             this.button_close.MaximumSize = new System.Drawing.Size(80, 60);
@@ -81,7 +81,7 @@
             // label_content
             // 
             this.label_content.AutoSize = true;
-            this.label_content.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_content.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_content.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label_content.Location = new System.Drawing.Point(55, 130);
             this.label_content.Name = "label_content";
@@ -94,7 +94,7 @@
             this.button_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.button_ok.FlatAppearance.BorderSize = 0;
             this.button_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ok.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_ok.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_ok.ForeColor = System.Drawing.Color.LightGray;
             this.button_ok.Location = new System.Drawing.Point(0, 237);
             this.button_ok.MaximumSize = new System.Drawing.Size(100, 60);
@@ -111,7 +111,7 @@
             this.button_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.button_cancel.FlatAppearance.BorderSize = 0;
             this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancel.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_cancel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_cancel.ForeColor = System.Drawing.Color.LightGray;
             this.button_cancel.Location = new System.Drawing.Point(200, 237);
             this.button_cancel.MaximumSize = new System.Drawing.Size(80, 50);
@@ -128,7 +128,7 @@
             this.button_sure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.button_sure.FlatAppearance.BorderSize = 0;
             this.button_sure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_sure.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_sure.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_sure.ForeColor = System.Drawing.Color.LightGray;
             this.button_sure.Location = new System.Drawing.Point(0, 237);
             this.button_sure.MaximumSize = new System.Drawing.Size(80, 50);
@@ -155,7 +155,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MessageForm";
+            this.Text = "提示";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MessageForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MessageForm_MouseMove);
             this.panel1.ResumeLayout(false);

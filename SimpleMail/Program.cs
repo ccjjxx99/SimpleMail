@@ -23,7 +23,7 @@ namespace SimpleMail
             if (!LoginController.IsEverLoggedIn())
             {
                 //程序显示登录界面
-                LoginForm loginForm = new LoginForm();
+                LoginForm loginForm = new LoginForm() { StartPosition = FormStartPosition.CenterScreen };
                 loginForm.ShowDialog();
                 //显示主界面
                 if (loginForm.DialogResult == DialogResult.OK)

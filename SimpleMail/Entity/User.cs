@@ -17,6 +17,13 @@ namespace SimpleMail.Entity
     {
         //是否上次登录
         public bool isLogin { get; set; }
+
+        //是否记住用户名
+        public bool RemUser { get; set; }
+
+        //是否记住密码
+        public bool RemPass { get; set; }
+
         //用户名（邮箱地址）
         public string Username { get; set; }
         //密码

@@ -1,10 +1,13 @@
 ﻿using SimpleMail.Controller;
+using SimpleMail.Entity;
 using SimpleMail.Service;
+using SimpleMail.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +23,9 @@ namespace SimpleMail.Window
     public partial class LoginForm : Form
     {
         private Point point;    //当前位置，用于窗口移动
+
+        private List<User> users = new List<User>(); //已登录过的用户名
+
         public LoginForm()
         {
             InitializeComponent();
@@ -64,7 +70,7 @@ namespace SimpleMail.Window
         //登录
         private void button_login_Click(object sender, EventArgs e)
         {
-            string username = textBox_username.Text;
+            string username = comboBox_username.Text;
             string password = textBox_password.Text;
             //先判断是否有空，即信息未填完
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -72,14 +78,75 @@ namespace SimpleMail.Window
                 return;
             }
 
-            //登录
-            if (!LoginController.LoginPOP3(username, password) || !LoginController.LoginSMTP(DataService.pop3.User))
+            //判断格式是否正确
+            if(username.Split('@').Length != 2)
             {
-                MessageBox.Show("地址或用户名、密码错误", "登录提示");
+                MessageForm messageForm = new MessageForm("提醒", "用户名格式不正确", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
+                return;
+            }
+
+            User user = users.Find(u => u.Username.Equals(username));
+            if (user == null)
+            {
+                user = new User(username, password);
+            }
+
+            //登录
+            if (!LoginController.LoginPOP3(user, !users.Contains(user)) || !LoginController.LoginSMTP(DataService.pop3.User))
+            {
+                MessageForm messageForm = new MessageForm("提醒", "用户名或密码错误", "确定");
+                messageForm.ShowDialog();
+                if (messageForm.DialogResult == DialogResult.Cancel)
+                {
+                    messageForm.Dispose();
+                }
             }
             else
             {
+                if (checkBox1.Checked) DataService.pop3.User.RemUser = true;
+                else DataService.pop3.User.RemUser = false;
+                if (checkBox2.Checked) DataService.pop3.User.RemPass = true;
+                else DataService.pop3.User.RemPass = false;
                 this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            DirectoryInfo dir = new DirectoryInfo(SerializeUtil.Dir);
+            if (!Directory.Exists(SerializeUtil.Dir))
+            {
+                Directory.CreateDirectory(SerializeUtil.Dir);
+            }
+            FileInfo[] infos = dir.GetFiles();
+            //是否登录过
+            if (infos.Length != 0) //是
+            {
+                foreach (FileInfo info in infos)
+                {
+                    //获得用户信息
+                    User user = SerializeUtil.DeSerializeUser(info.FullName);
+                    users.Add(user);
+                    if (user.RemUser)
+                    {
+                        comboBox_username.Items.Add(user.Username);
+                        comboBox_username.SelectedItem = user.Username;
+                        if (user.RemPass)
+                        {
+                            checkBox2.Checked = true;
+                            textBox_password.Text = user.Password;
+                        }
+                        else
+                        {
+                            checkBox2.Checked = false;
+                        }
+                    }
+                }
             }
         }
 

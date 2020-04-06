@@ -26,16 +26,15 @@ namespace SimpleMail.Controller
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool LoginPOP3(string username, string password)
+        public static bool LoginPOP3(User user, bool needSerialize)
         {
-            User user = new User(username, password);
             POP3Client pop3Client = new POP3Client(user);
             //进行连接验证pop, 信息是否正确
             if (pop3Client.Login(user))  //信息正确
             {
                 //返回用户对象
                 user.isLogin = true;
-                SerializeUtil.SerializeUser(user);
+                if (needSerialize) SerializeUtil.SerializeUser(user);
                 DataService.pop3 = pop3Client;
                 DataService.isFirstLogin = true;
                 return true;
