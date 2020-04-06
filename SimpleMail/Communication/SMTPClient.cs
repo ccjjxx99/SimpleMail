@@ -133,7 +133,7 @@ namespace SimpleMail.Communication
                             .Append("To: " + to + CRLF)
                             .Append("Subject: " + subject + CRLF)
                             .Append("Content-Type: multipart/mixed;" + CRLF)
-                            .Append(" boundary= \"__=_Part_Boundary_001_011991.029871\"" + CRLF)
+                            .Append(" boundary=\"__=_Part_Boundary_001_011991.029871\"" + CRLF)
                             .Append("Mime-Version: 1.0" + CRLF + CRLF)
                             .Append("--__=_Part_Boundary_001_011991.029871" + CRLF)
                             .Append("Content-Type: text/plain; charset=\"UTF-8\"" + CRLF + CRLF)
@@ -144,7 +144,8 @@ namespace SimpleMail.Communication
                         string fileName = Path.GetFileName(filePath);
                         string extension = Path.GetExtension(filePath);
                         stringBuilder.Append("--__=_Part_Boundary_001_011991.029871" + CRLF)
-                           .Append("Content-Type:application/octet-stream; name=" + fileName + CRLF)
+                           .Append("Content-Type: application/octet-stream;" + CRLF)
+                           .Append("\tfilename=\"" + fileName +"\""+ CRLF)
                            .Append("Content-Transfer-Encoding: base64" + CRLF)
                            .Append("Content - Disposition: attachment; filename =\"" + fileName + "\"" + CRLF + CRLF)
                            .Append(attachs[i] + CRLF + CRLF);
