@@ -244,7 +244,27 @@ namespace SimpleMail.Window
         private void ShowMailText(ReceivedMail receivedMail)
         {
             if (receivedMail == null)
+            {
+                label_sender.Text = "发件人：";
+                label_receiver.Text = "收件人：";
+                label_subject.Text = "主  题：";
+                label_date_detail.Text = "时间：";
+                label_size.Text = "大  小：  KB";
+                label_enclosure.Text = "附  件: ";
+                richTextBox_content.Text = "";
+                webBrowser_html.DocumentText = "";
+                listView_enclosure.Items.Clear();
+                webBrowser_html.Visible = false;
+                richTextBox_content.Visible = true;
+                
+                groupBox_infos.Size = new Size(groupBox_infos.Size.Width, 156);
+                richTextBox_content.Location = new Point(richTextBox_content.Location.X, 330 - 160);
+                richTextBox_content.Size = new Size(richTextBox_content.Size.Width, 355 + 160);
+                webBrowser_html.Location = new Point(webBrowser_html.Location.X, 355 - 160);
+                webBrowser_html.Size = new Size(groupBox_infos.Size.Width, 355 + 160);
                 return;
+            }
+                
             label_sender.Text = "发件人：" + receivedMail.FromName + " <" + receivedMail.FromAddress + ">";
             label_receiver.Text = "收件人：" + receivedMail.ToName + " <" + receivedMail.ToAdderss + ">";
             label_subject.Text = "主  题：" + receivedMail.Subject;

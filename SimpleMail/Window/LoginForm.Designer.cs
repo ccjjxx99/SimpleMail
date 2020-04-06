@@ -46,7 +46,7 @@
             // 
             this.button_min.FlatAppearance.BorderSize = 0;
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_min.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
             this.button_min.Location = new System.Drawing.Point(333, 3);
             this.button_min.MaximumSize = new System.Drawing.Size(80, 50);
@@ -62,7 +62,7 @@
             // 
             this.button_close.FlatAppearance.BorderSize = 0;
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
             this.button_close.Location = new System.Drawing.Point(419, 3);
             this.button_close.MaximumSize = new System.Drawing.Size(80, 50);
@@ -77,7 +77,7 @@
             // label_username
             // 
             this.label_username.AutoSize = true;
-            this.label_username.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_username.Location = new System.Drawing.Point(12, 200);
             this.label_username.Name = "label_username";
@@ -88,7 +88,7 @@
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_password.Location = new System.Drawing.Point(12, 300);
             this.label_password.Name = "label_password";
@@ -100,7 +100,7 @@
             // 
             this.textBox_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_password.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_password.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_password.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_password.Location = new System.Drawing.Point(152, 300);
             this.textBox_password.Name = "textBox_password";
@@ -132,10 +132,14 @@
             // 
             // comboBox_username
             // 
+            this.comboBox_username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.comboBox_username.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_username.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox_username.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_username.FormattingEnabled = true;
-            this.comboBox_username.Location = new System.Drawing.Point(170, 197);
+            this.comboBox_username.Location = new System.Drawing.Point(152, 197);
             this.comboBox_username.Name = "comboBox_username";
-            this.comboBox_username.Size = new System.Drawing.Size(266, 23);
+            this.comboBox_username.Size = new System.Drawing.Size(313, 28);
             this.comboBox_username.TabIndex = 0;
             // 
             // checkBox1
