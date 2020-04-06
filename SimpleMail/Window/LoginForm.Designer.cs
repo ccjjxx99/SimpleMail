@@ -160,6 +160,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 520);
             this.Name = "LoginForm";
             this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
