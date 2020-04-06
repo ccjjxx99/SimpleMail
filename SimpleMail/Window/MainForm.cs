@@ -460,6 +460,7 @@ namespace SimpleMail.Window
             }
         }
 
+        //收取信件
         private void button1_Click(object sender, EventArgs e)
         {
             bool isGetAllMail = false;      //是否成功获取信件
