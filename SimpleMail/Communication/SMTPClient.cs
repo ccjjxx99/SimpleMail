@@ -133,7 +133,7 @@ namespace SimpleMail.Communication
                             .Append("To: " + to + CRLF)
                             .Append("Subject: " + subject + CRLF)
                             .Append("Content-Type: multipart/mixed;" + CRLF)
-                            .Append(" boundary= \"__=_Part_Boundary_001_011991.029871\"" + CRLF)
+                            .Append(" boundary=\"__=_Part_Boundary_001_011991.029871\"" + CRLF)
                             .Append("Mime-Version: 1.0" + CRLF + CRLF)
                             .Append("--__=_Part_Boundary_001_011991.029871" + CRLF)
                             .Append("Content-Type: text/plain; charset=\"UTF-8\"" + CRLF + CRLF)
