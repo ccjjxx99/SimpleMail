@@ -38,6 +38,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除邮件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip_button = new System.Windows.Forms.ToolTip(this.components);
+            this.button_write_enclosure = new System.Windows.Forms.Button();
+            this.button_write_send = new System.Windows.Forms.Button();
+            this.button_del_attach = new System.Windows.Forms.Button();
             this.panel_receive = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.webBrowser_html = new System.Windows.Forms.WebBrowser();
@@ -67,10 +70,7 @@
             this.textBox_write_to = new System.Windows.Forms.TextBox();
             this.textBox_write_subject = new System.Windows.Forms.TextBox();
             this.textBox_write_content = new System.Windows.Forms.TextBox();
-            this.button_write_enclosure = new System.Windows.Forms.Button();
-            this.button_write_send = new System.Windows.Forms.Button();
             this.listView_write_enclosures = new System.Windows.Forms.ListView();
-            this.button_del_attach = new System.Windows.Forms.Button();
             this.panel_write = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.panel_receive.SuspendLayout();
@@ -86,7 +86,7 @@
             // 
             this.button_logout.FlatAppearance.BorderSize = 0;
             this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_logout.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_logout.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_logout.ForeColor = System.Drawing.Color.LightGray;
             this.button_logout.Location = new System.Drawing.Point(1075, 0);
             this.button_logout.Margin = new System.Windows.Forms.Padding(5);
@@ -104,7 +104,7 @@
             // 
             this.button_min.FlatAppearance.BorderSize = 0;
             this.button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_min.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_min.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_min.ForeColor = System.Drawing.Color.LightGray;
             this.button_min.Location = new System.Drawing.Point(1185, 0);
             this.button_min.Margin = new System.Windows.Forms.Padding(5);
@@ -122,7 +122,7 @@
             // 
             this.button_close.FlatAppearance.BorderSize = 0;
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_close.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_close.ForeColor = System.Drawing.Color.LightGray;
             this.button_close.Location = new System.Drawing.Point(1295, 0);
             this.button_close.Margin = new System.Windows.Forms.Padding(5);
@@ -173,6 +173,60 @@
             this.删除邮件ToolStripMenuItem.Text = "删除邮件";
             this.删除邮件ToolStripMenuItem.Click += new System.EventHandler(this.删除邮件ToolStripMenuItem_Click);
             // 
+            // button_write_enclosure
+            // 
+            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
+            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_enclosure.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_enclosure.Location = new System.Drawing.Point(663, 536);
+            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.Name = "button_write_enclosure";
+            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
+            this.button_write_enclosure.TabIndex = 18;
+            this.button_write_enclosure.Text = "添加附件";
+            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
+            this.button_write_enclosure.UseVisualStyleBackColor = true;
+            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
+            // 
+            // button_write_send
+            // 
+            this.button_write_send.FlatAppearance.BorderSize = 0;
+            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_write_send.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
+            this.button_write_send.Location = new System.Drawing.Point(999, 536);
+            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
+            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_write_send.Name = "button_write_send";
+            this.button_write_send.Size = new System.Drawing.Size(120, 60);
+            this.button_write_send.TabIndex = 18;
+            this.button_write_send.Text = "发送";
+            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
+            this.button_write_send.UseVisualStyleBackColor = true;
+            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
+            // 
+            // button_del_attach
+            // 
+            this.button_del_attach.FlatAppearance.BorderSize = 0;
+            this.button_del_attach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_del_attach.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_del_attach.ForeColor = System.Drawing.Color.LightGray;
+            this.button_del_attach.Location = new System.Drawing.Point(837, 536);
+            this.button_del_attach.Margin = new System.Windows.Forms.Padding(5);
+            this.button_del_attach.MaximumSize = new System.Drawing.Size(120, 60);
+            this.button_del_attach.MinimumSize = new System.Drawing.Size(120, 60);
+            this.button_del_attach.Name = "button_del_attach";
+            this.button_del_attach.Size = new System.Drawing.Size(120, 60);
+            this.button_del_attach.TabIndex = 29;
+            this.button_del_attach.Text = "删除附件";
+            this.toolTip_button.SetToolTip(this.button_del_attach, "最小化");
+            this.button_del_attach.UseVisualStyleBackColor = true;
+            this.button_del_attach.Click += new System.EventHandler(this.button_del_attach_Click);
+            // 
             // panel_receive
             // 
             this.panel_receive.Controls.Add(this.button1);
@@ -213,7 +267,7 @@
             // 
             this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox_content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox_content.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.richTextBox_content.Location = new System.Drawing.Point(435, 330);
             this.richTextBox_content.MaximumSize = new System.Drawing.Size(733, 495);
@@ -232,7 +286,7 @@
             this.groupBox_infos.Controls.Add(this.label_date_detail);
             this.groupBox_infos.Controls.Add(this.label_sender);
             this.groupBox_infos.Controls.Add(this.label_receiver);
-            this.groupBox_infos.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox_infos.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_infos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox_infos.Location = new System.Drawing.Point(435, 8);
             this.groupBox_infos.Name = "groupBox_infos";
@@ -255,7 +309,7 @@
             // 
             this.listView_enclosure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.listView_enclosure.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView_enclosure.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView_enclosure.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView_enclosure.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_enclosure.HideSelection = false;
             this.listView_enclosure.Location = new System.Drawing.Point(12, 210);
@@ -330,7 +384,7 @@
             this.listBox_receivedMails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox_receivedMails.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox_receivedMails.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listBox_receivedMails.Font = new System.Drawing.Font("微软雅黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBox_receivedMails.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBox_receivedMails.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.listBox_receivedMails.FormattingEnabled = true;
             this.listBox_receivedMails.ItemHeight = 60;
@@ -346,7 +400,7 @@
             // label_date
             // 
             this.label_date.AutoSize = true;
-            this.label_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_date.Location = new System.Drawing.Point(30, 69);
             this.label_date.Name = "label_date";
             this.label_date.Size = new System.Drawing.Size(109, 20);
@@ -358,7 +412,7 @@
             this.comboBox_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.comboBox_date.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_date.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox_date.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox_date.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.comboBox_date.FormattingEnabled = true;
             this.comboBox_date.Items.AddRange(new object[] {
@@ -384,7 +438,7 @@
             // label_hello
             // 
             this.label_hello.AutoSize = true;
-            this.label_hello.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_hello.Font = new System.Drawing.Font("SimSun", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_hello.Location = new System.Drawing.Point(103, 327);
             this.label_hello.Name = "label_hello";
             this.label_hello.Size = new System.Drawing.Size(137, 40);
@@ -481,7 +535,7 @@
             // 
             this.textBox_write_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox_write_to.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_to.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_to.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_write_to.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_write_to.Location = new System.Drawing.Point(187, 37);
             this.textBox_write_to.Name = "textBox_write_to";
@@ -492,7 +546,7 @@
             // 
             this.textBox_write_subject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox_write_subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_subject.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_subject.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_write_subject.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_write_subject.Location = new System.Drawing.Point(187, 112);
             this.textBox_write_subject.Name = "textBox_write_subject";
@@ -503,7 +557,7 @@
             // 
             this.textBox_write_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox_write_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_write_content.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_write_content.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_write_content.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_write_content.Location = new System.Drawing.Point(187, 186);
             this.textBox_write_content.Multiline = true;
@@ -511,47 +565,11 @@
             this.textBox_write_content.Size = new System.Drawing.Size(932, 342);
             this.textBox_write_content.TabIndex = 24;
             // 
-            // button_write_enclosure
-            // 
-            this.button_write_enclosure.FlatAppearance.BorderSize = 0;
-            this.button_write_enclosure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_enclosure.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_enclosure.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_enclosure.Location = new System.Drawing.Point(663, 536);
-            this.button_write_enclosure.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_enclosure.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.Name = "button_write_enclosure";
-            this.button_write_enclosure.Size = new System.Drawing.Size(120, 60);
-            this.button_write_enclosure.TabIndex = 18;
-            this.button_write_enclosure.Text = "添加附件";
-            this.toolTip_button.SetToolTip(this.button_write_enclosure, "最小化");
-            this.button_write_enclosure.UseVisualStyleBackColor = true;
-            this.button_write_enclosure.Click += new System.EventHandler(this.button_write_enclosure_Click);
-            // 
-            // button_write_send
-            // 
-            this.button_write_send.FlatAppearance.BorderSize = 0;
-            this.button_write_send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_write_send.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_write_send.ForeColor = System.Drawing.Color.LightGray;
-            this.button_write_send.Location = new System.Drawing.Point(999, 536);
-            this.button_write_send.Margin = new System.Windows.Forms.Padding(5);
-            this.button_write_send.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_write_send.Name = "button_write_send";
-            this.button_write_send.Size = new System.Drawing.Size(120, 60);
-            this.button_write_send.TabIndex = 18;
-            this.button_write_send.Text = "发送";
-            this.toolTip_button.SetToolTip(this.button_write_send, "最小化");
-            this.button_write_send.UseVisualStyleBackColor = true;
-            this.button_write_send.Click += new System.EventHandler(this.button_write_send_Click);
-            // 
             // listView_write_enclosures
             // 
             this.listView_write_enclosures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.listView_write_enclosures.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView_write_enclosures.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView_write_enclosures.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView_write_enclosures.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.listView_write_enclosures.HideSelection = false;
             this.listView_write_enclosures.Location = new System.Drawing.Point(187, 604);
@@ -561,24 +579,6 @@
             this.listView_write_enclosures.TabIndex = 28;
             this.listView_write_enclosures.UseCompatibleStateImageBehavior = false;
             this.listView_write_enclosures.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // button_del_attach
-            // 
-            this.button_del_attach.FlatAppearance.BorderSize = 0;
-            this.button_del_attach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_del_attach.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_del_attach.ForeColor = System.Drawing.Color.LightGray;
-            this.button_del_attach.Location = new System.Drawing.Point(837, 536);
-            this.button_del_attach.Margin = new System.Windows.Forms.Padding(5);
-            this.button_del_attach.MaximumSize = new System.Drawing.Size(120, 60);
-            this.button_del_attach.MinimumSize = new System.Drawing.Size(120, 60);
-            this.button_del_attach.Name = "button_del_attach";
-            this.button_del_attach.Size = new System.Drawing.Size(120, 60);
-            this.button_del_attach.TabIndex = 29;
-            this.button_del_attach.Text = "删除附件";
-            this.toolTip_button.SetToolTip(this.button_del_attach, "最小化");
-            this.button_del_attach.UseVisualStyleBackColor = true;
-            this.button_del_attach.Click += new System.EventHandler(this.button_del_attach_Click);
             // 
             // panel_write
             // 
@@ -609,7 +609,7 @@
             this.Controls.Add(this.panel_receive);
             this.Controls.Add(this.panel_hello);
             this.Controls.Add(this.panel_write);
-            this.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
