@@ -116,7 +116,10 @@ namespace SimpleMail.Communication
             return false;
         }
 
-        //获取所有的邮件
+        /// <summary>
+        /// 获取所有的邮件
+        /// </summary>
+        /// <returns>获取状态</returns>
         public int GetAllMail()
         {
             //返回标志： -1获取失败， 0 获取部分失败， 1获取全部成功 
@@ -162,7 +165,11 @@ namespace SimpleMail.Communication
             return flag;
         }
 
-        //根据邮件id获取邮件
+        /// <summary>
+        /// 根据邮件id获取邮件
+        /// </summary>
+        /// <param name="i">邮件id</param>
+        /// <returns>邮件</returns>
         private ReceivedMail GetMailByIndex(int i)
         {
             if (State == Pop3STATE.CONNECTED)  //在可操作状态下才可操作
@@ -194,7 +201,11 @@ namespace SimpleMail.Communication
             return null;
         }
 
-        //获取邮件大小
+        /// <summary>
+        /// 获取邮件大小
+        /// </summary>
+        /// <param name="index">id</param>
+        /// <returns>大小</returns>
         private int GetMailSizeByIndex(int index)
         {
             if (State == Pop3STATE.CONNECTED)
@@ -208,7 +219,11 @@ namespace SimpleMail.Communication
             return -1;
         }
 
-        //删除邮件
+        /// <summary>
+        /// 删除邮件
+        /// </summary>
+        /// <param name="i">id</param>
+        /// <returns></returns>
         public bool DelMail(int i)
         {
             if (State == Pop3STATE.CONNECTED)
@@ -224,7 +239,9 @@ namespace SimpleMail.Communication
             return false;
         }
 
-        //执行一个空操作
+        /// <summary>
+        /// 执行空操作
+        /// </summary>
         public void Noop()
         {
             if (State == Pop3STATE.CONNECTED)
